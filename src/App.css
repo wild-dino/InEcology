@@ -6,35 +6,16 @@
   grid-template-areas: 
   "h h"
   "n c";
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 94px 1fr;
   grid-template-columns: 2fr 10fr;
-  /* grid-gap: 10px; */
 }
 
-.header {
-  width: 100%;
-  display: flex;
-  /* justify-content: space-evenly; */
-  align-items: center;
-  grid-area: h;
-}
-
-.cart {
-  width: 30px;
-  height: 25px;
-  /* align-self: flex-end; */
-}
-
-.logo {
-  width: 150px;
-  height: 30px;
-}
-
-
-.nav {
-  grid-area: n;
-}
-
-.content {
+.app-wrapper-content {
   grid-area: c;
 }
+
+
+
+
+
+

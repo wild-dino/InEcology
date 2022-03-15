@@ -1,0 +1,27 @@
+.nav {
+    grid-area: n;
+    background-color: #DDFFB3;
+    height: 100vh;
+    border-radius: 25px;
+}
+
+.link {
+    margin-top: 30px;
+    padding-left: 30px;
+}
+
+.link a {
+    position: relative;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    transition: all 250ms ease-in;
+}
+
+a:hover {
+    color: #9FC059;
+}
+
+a.active {
+    color: gold;
+}
