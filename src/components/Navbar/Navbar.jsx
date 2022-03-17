@@ -5,19 +5,19 @@ const Navbar = () => {
   return (
     <nav className={s.nav}>
       <div className={s.link}>
-        <NavLink to = "/#">Главная</NavLink>
+        <NavLink to = "/#" className={(navData) => navData.isActive? s.active: ''}>Главная</NavLink>
       </div>
       <div className={s.link}>
         <NavLink to="/profile" className={(navData) => navData.isActive? s.active: ''}>Мой профиль</NavLink>
       </div>
       <div className={s.link}>
-        <NavLink to= "/#">Каталог</NavLink>
+        <NavLink to= "/#" className={(navData) => navData.isActive? s.active: ''}>Каталог</NavLink>
       </div>
       <div className={s.link}>
-        <NavLink to = "/#">Блог</NavLink>
+        <NavLink to = "/#" className={(navData) => navData.isActive? s.active: ''}>Блог</NavLink>
       </div>
       <div className={s.link}>
-        <NavLink to= "/#">Пункты приема</NavLink>
+        <NavLink to= "/#" className={(navData) => navData.isActive? s.active: ''}>Пункты приема</NavLink>
       </div>
       <div className={s.link}>
         <NavLink to="/dialogs" className={(navData) => navData.isActive? s.active: ''}>Сообщения</NavLink>
