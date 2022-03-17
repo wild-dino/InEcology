@@ -20,7 +20,7 @@ const Navbar = () => {
         <NavLink to= "/#" className={(navData) => navData.isActive? s.active: ''}>Пункты приема</NavLink>
       </div>
       <div className={s.link}>
-        <NavLink to="/dialogs" className={(navData) => navData.isActive? s.active: ''}>Сообщения</NavLink>
+        <NavLink to="/dialogs/" className={(navData) => navData.isActive? s.active: ''}>Сообщения</NavLink>
       </div>
     </nav>
   );
