@@ -1,15 +1,15 @@
-.balance__total {
+.balanceTotal {
   display: flex;
   align-items: center;
 }
 
-.balance__label {
+.balanceLabel {
   font-size: 24px;
   font-weight: bold;
   color: #365F0E;
 }
 
-.balance__total img {
+.balanceTotal img {
   width: 36px;
   height: 31px;
 }

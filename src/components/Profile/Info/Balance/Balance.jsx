@@ -1,10 +1,10 @@
-import "./Balance.css";
+import s from "./Balance.module.css";
 
 const Balance = (props) => {
   return (
-    <div className="balance">
-      <div className="balance__label">Ваш баланс:</div>
-      <div className="balance__total">
+    <div className={s.balance}>
+      <div className={s.balanceLabel}>Ваш баланс:</div>
+      <div className={s.balanceTotal}>
         <p>{props.balance}</p>
         <img src={require("./icon.png")} alt="" />
       </div>

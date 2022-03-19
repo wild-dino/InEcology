@@ -1,10 +1,12 @@
 import Info from "./Info/Info";
-import "./Profile.css";
+import s from "./Profile.module.css";
+import Posts from "./Posts/Posts";
 
 const Profile = () => {
   return (
     <div>
       <Info/>
+      <Posts/>
     </div>
   );
 };
