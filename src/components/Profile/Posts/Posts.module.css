@@ -2,38 +2,37 @@
     margin-left: 40px;
 }
 
-textarea {
-    width: 90%;
+.postsMain {
+    font-size: 24px;
+    font-weight: bold;
+    color: #365F0E;
+    margin-top: 30px;
 }
 
-.postItem {
-
-}
-
-.postItem img {
-    width: 45px;
-    height: 45px;
-}
-
-.postText {
-
-}
-
-.avatar {
-    display: inline-block;
-    overflow: hidden;
-    width: 6%;
-    padding-bottom: 6%;
-    height: 0;
-    position: relative;
-    justify-self: flex-end;
-    margin-right: 42px;
-}
-
-.avatar img {
+.addPost {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 50%;
-    object-fit: cover;
+    max-width: 900px;
+    padding: 15px;
+    margin-top: 30px;
+    border-radius: 15px;
+    background-color: #DDFFB3;
+}
+
+textarea {
+    border: none;
+    width: 85%;
+}
+
+.btn {
+    min-width: 10%;
+    margin-left: 15px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: darkred;
+    background-color: orange;
 }

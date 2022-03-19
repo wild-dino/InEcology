@@ -6,7 +6,7 @@ const Info = () => {
   return (
     <div className={s.info}>
       <div className={s.avatar}>
-        <img src={require('./avatar.jpg')} />
+        <img src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg" />
       </div>
       <Description code = "45Yptt4"/>
       <Balance balance = "234"/>
