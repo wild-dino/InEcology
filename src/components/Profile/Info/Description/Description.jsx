@@ -1,7 +1,6 @@
 import "./Description.css";
 
 const Description = (props) => {
-  console.log(props);
   return (
     <div className="description">
         <div className="description__name">Васька Рыбов</div>

@@ -1,0 +1,8 @@
+.message {
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    justify-self: flex-start;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}

@@ -13,6 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-evenly;
     width: 100%;
     max-width: 900px;
     padding: 15px;
@@ -28,7 +29,6 @@ textarea {
 
 .btn {
     min-width: 10%;
-    margin-left: 15px;
     padding: 10px;
     cursor: pointer;
     border: none;
