@@ -76,33 +76,30 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-
-    addPost() {
-        let newPost = {
-            id: 4,
-            message: this._state.profilePage.newPostText
-        }
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    dispatch(action ) { //{type: 'ADD-POST'} // передается объект
+    dispatch(action) { //{type: 'ADD-POST'} // передается объект
         if(action.type === 'ADD-POST') {
             let newPost = {
                 id: 4,
                 message: this._state.profilePage.newPostText
-            }
+            };
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-NEXT') {
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
         }
+    }
+}
+
+export const addPostActionCreator = () => {
+    return {
+        type: 'ADD-POST'
+    }
+}
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT', newText: text
     }
 }
 
