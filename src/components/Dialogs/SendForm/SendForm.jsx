@@ -1,16 +1,21 @@
 import s from "./SendForm.module.css";
 import React from "react";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../redux/state";
 
 const sendForm = (props) => {
     let newMessageElement = React.createRef()
     let addMessage = () => {
+        props.dispatch(addMessageActionCreator());
+    }
+
+    let onSendFormChange = () => {
         let message = newMessageElement.current.value;
-        alert('димка')
+        props.dispatch(updateNewMessageTextActionCreator(message));
     }
 
     return(
         <div className={s.sendForm}>
-            <textarea ref={newMessageElement} name="message" cols="2" rows="2" placeholder="Написать собеседнику"></textarea>
+            <textarea onChange={onSendFormChange} ref={newMessageElement} name="message" cols="2" rows="2" value={props.newMessageText}/>
             <button onClick={addMessage} className={s.btn}>Отправить</button>
         </div>
     )
