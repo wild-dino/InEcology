@@ -11,11 +11,11 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageText: (message) => {
-            dispatch(updateNewMessageTextCreator(message));
-        },
         sendMessage: () => {
             dispatch(addMessageCreator());
+        },
+        updateNewMessageText: (message) => {
+            dispatch(updateNewMessageTextCreator(message));
         }
     }
 }
