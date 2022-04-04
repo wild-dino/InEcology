@@ -1,0 +1,57 @@
+.plantItem {
+    display: flex;
+    min-height: 300px;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.plantImage {
+    display: inline-block;
+    margin-top: 20px;
+    overflow: hidden;
+    width: 70%;
+    padding-bottom: 90%;
+    height: 0;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.plantImage img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+.name {
+ font-size: 16px;
+}
+
+.elements {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.cost {
+    font-weight: bold;
+}
+
+.btn {
+    margin-left: 40px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn img {
+    width: 25px;
+}

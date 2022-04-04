@@ -1,4 +1,5 @@
 import s from "./Balance.module.css";
+import icon from "./../../../../assets/Icons/logo.svg"
 
 const Balance = (props) => {
   return (
@@ -6,7 +7,7 @@ const Balance = (props) => {
       <div className={s.balanceLabel}>Ваш баланс:</div>
       <div className={s.balanceTotal}>
         <p>{props.balance}</p>
-        <img src={require("./icon.png")} alt="" />
+        <img src={icon} alt="" />
       </div>
     </div>
   );

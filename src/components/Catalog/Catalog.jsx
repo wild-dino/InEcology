@@ -1,19 +1,11 @@
 import s from "./Catalog.module.css";
-import boyarishnik from "./../../assets/Catalog/boyarishnik.png";
+import PlantItem from "./PlantItem/PlantItem";
 
 const Catalog = (props) => {
+    let plantItems = props.plantsList.map(p => <PlantItem key={p.id} id={p.id} image={p.image} name={p.name} cost={p.cost} />)
     return (
-        <div>
-            <div className={s.item}>
-                <div className={s.picture}>
-                    <img src={boyarishnik}/>
-                </div>
-                <div className={s.name}>Боярышник</div>
-                <div className={s.icons}>
-                    <div>250</div>
-                    <div>Корзина</div>
-                </div>
-            </div>
+        <div className={s.container}>
+            {plantItems}
         </div>
     );
 };
