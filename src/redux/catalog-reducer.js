@@ -21,13 +21,34 @@ let initialState = {
 export const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            return {}
+            debugger;
+            const item = state.plantsList.find((plant) => plant.id === action.itemId);
+            const inCart = state.cart.find((item) => item.id === action.itemId ? true : false);
+            return {
+                ...state,
+                cart: inCart
+                    ? state.cart.map((item) =>
+                        item.id === action.itemId
+                            ? {...item, qty: item.qty + 1}
+                            : item
+                    )
+                    : [...state.cart, {...item, qty: 1}],
+            };
         case REMOVE_FROM_CART:
-            return {}
+            return {
+                ...state,
+                cart: state.cart.filter((item) => item.id !== action.itemId),
+            }
         case ADJUST_QTY:
-            return {}
+            return {
+                ...state,
+                cart: state.cart.map((item) => item.id === action.itemId ? {...item, qty: action.value} : item)
+            }
         case LOAD_CURRENT_ITEM:
-            return {}
+            return {
+                ...state,
+                currentItem: action.item
+            }
         default:
             return state;
     }
@@ -35,7 +56,7 @@ export const catalogReducer = (state = initialState, action) => {
 
 export const addToCartAC = (itemId) => ({type: ADD_TO_CART, itemId});
 export const removeFromCart = (itemId) => ({type: REMOVE_FROM_CART, itemId});
-export const adjustQty = (itemId, value) => ({type: ADJUST_QTY, itemId, value });
-export const loadCurrentItem = (item) => ({type: LOAD_CURRENT_ITEM, item });
+export const adjustQty = (itemId, value) => ({type: ADJUST_QTY, itemId, value});
+export const loadCurrentItem = (item) => ({type: LOAD_CURRENT_ITEM, item});
 
 export default catalogReducer;
