@@ -4,5 +4,24 @@
 }
 
 .cart__summary {
-    background-color: #365F0E;
+    max-height: 300px;
+    background-color: #DDFFB3;
+}
+
+.cart__items {
+    display: flex;
+    flex-direction: column;
+}
+
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.emptyCart img {
+    margin-top: 50px;
+    width: 30%;
 }

@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import CartItem from "./CartItem/CartItem";
 import s from "./Cart.module.css";
 import logo from "./../../assets/Icons/logo.svg";
+import emptyCart from "./../../assets/Cart/emptyCart.JPG"
 
 const Cart = ({cart, currentBalance}) => {
     const [totalPrice, setTotalPrice] = useState(0);
@@ -25,7 +26,7 @@ const Cart = ({cart, currentBalance}) => {
     return (
         <div className={s.cart}>
             <div className={s.cart__items}>
-                {cartElements}
+                {(!totalItems)? <div className={s.emptyCart}>В корзине пусто :(<img src={emptyCart}/></div> : cartElements}
             </div>
             <div className={s.cart__summary}>
                 <h4 className={s.summary__title}>Итог</h4>

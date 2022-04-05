@@ -42,7 +42,7 @@ export const catalogReducer = (state = initialState, action) => {
         case ADJUST_QTY:
             return {
                 ...state,
-                cart: state.cart.map((item) => item.id === action.itemId ? {...item, qty: action.value} : item)
+                cart: state.cart.map((item) => item.id === action.itemId ? {...item, qty: +action.value} : item)
             }
         case LOAD_CURRENT_ITEM:
             return {
