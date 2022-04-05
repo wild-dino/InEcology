@@ -22,6 +22,9 @@ const Navbar = () => {
       <div className={s.link}>
         <NavLink to="/dialogs/" className={(navData) => navData.isActive? s.active: ''}>Сообщения</NavLink>
       </div>
+        <div className={s.link}>
+        <NavLink to="/cart" className={(navData) => navData.isActive? s.active: ''}>Корзина</NavLink>
+      </div>
     </nav>
   );
 };

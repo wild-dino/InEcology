@@ -4,8 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import {Routes, Route} from 'react-router-dom';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import Catalog from "./components/Catalog/Catalog";
 import CatalogContainer from "./components/Catalog/CatalogContainer";
+import Cart from './components/Cart/Cart';
 
 const App = (props) => {
     return (
@@ -17,6 +17,7 @@ const App = (props) => {
                         <Route path="/dialogs/*" element={<DialogsContainer store={props.store}/>}/>
                         <Route path="/profile" element={<Profile store={props.store}/>}/>
                         <Route path="/catalog" element={<CatalogContainer store={props.store}/>}/>
+                        <Route path="/cart" element={<Cart store={props.store}/>}/>
                     </Routes>
                 </div>
             </div>

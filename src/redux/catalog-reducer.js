@@ -21,7 +21,6 @@ let initialState = {
 export const catalogReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            debugger;
             const item = state.plantsList.find((plant) => plant.id === action.itemId);
             const inCart = state.cart.find((item) => item.id === action.itemId ? true : false);
             return {
