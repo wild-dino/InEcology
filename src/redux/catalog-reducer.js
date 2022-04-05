@@ -15,7 +15,8 @@ let initialState = {
         {id: 8, image: 'jivuchka.png', name: 'Живучка ползучая', cost: 50}
     ],
     cart: [],
-    currentItem: null
+    currentItem: null,
+    currentBalance: 250
 }
 
 export const catalogReducer = (state = initialState, action) => {

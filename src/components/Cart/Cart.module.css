@@ -1,0 +1,8 @@
+.cart {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.cart__summary {
+    background-color: #365F0E;
+}
