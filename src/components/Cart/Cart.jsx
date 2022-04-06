@@ -26,7 +26,7 @@ const Cart = ({cart, currentBalance}) => {
     return (
         <div className={s.cart}>
             <div className={s.cart__items}>
-                {(!totalItems)? <div className={s.emptyCart}>В корзине пусто :(<img src={emptyCart}/></div> : cartElements}
+                {(cart.length === 0)? <div className={s.emptyCart}>В корзине пусто :(<img src={emptyCart}/></div> : cartElements}
             </div>
             <div className={s.cart__summary}>
                 <h4 className={s.summary__title}>Итог</h4>
@@ -34,7 +34,7 @@ const Cart = ({cart, currentBalance}) => {
                     <div>Всего: {totalItems}</div>
                     <div><img src={logo}/>{(totalPrice > currentBalance)? "Недостаточно средств :(" : totalPrice }</div>
                 </div>
-                <button className={s.summary_btn}>Оформить</button>
+                <button className={(totalPrice > currentBalance)? s.btnDisplayNone : s.summary__btn}>Оформить</button>
             </div>
         </div>
     );
