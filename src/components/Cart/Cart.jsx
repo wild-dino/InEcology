@@ -32,7 +32,7 @@ const Cart = ({cart, currentBalance}) => {
                 <h4 className={s.summary__title}>Итог</h4>
                 <div className={s.summary__price}>
                     <div>Всего: {totalItems}</div>
-                    <div><img src={logo}/>{(totalPrice > currentBalance)? "Недостаточно средств :(" : totalPrice }</div>
+                    <div>{(totalPrice > currentBalance)? "Недостаточно средств :(" :  totalPrice }</div>
                 </div>
                 <button className={(totalPrice > currentBalance)? s.btnDisplayNone : s.summary__btn}>Оформить</button>
             </div>

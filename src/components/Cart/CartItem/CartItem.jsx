@@ -17,18 +17,21 @@ const CartItem = ({itemData, removeFromCart, adjustQty}) => {
                 className={s.cartItem__image}
                 src={require(`./../../../assets/Catalog/${itemData.image}`)}
             />
-            <div className={s.cartItem__details}>
-                <p className={s.cartItem__title}>{itemData.name}</p>
-                <p className={s.cartItem__cost}>{itemData.cost}</p>
-            </div>
-            <div className={s.cartItem__actions}>
-                <div className={s.cartItem__qty}>
-                    <label htmlFor="qty">Qty</label>
-                    <input onChange={onChangeHandler} min="1" type="number" id="qty" name="qty" value={itemData.qty}/>
+            <div className={s.flexContainer}>
+                <div className={s.cartItem__details}>
+                    <p className={s.cartItem__title}>{itemData.name}</p>
+                    <p className={s.cartItem__cost}>{itemData.cost}</p>
                 </div>
-                <button onClick={() => removeFromCart(itemData.id)} className={s.actions__deleteItemBtn}>
-                    delete
-                </button>
+                <div className={s.cartItem__actions}>
+                    <div className={s.cartItem__qty}>
+                        <label htmlFor="qty">Количество</label>
+                        <input onChange={onChangeHandler} min="1" type="number" id="qty" name="qty"
+                               value={itemData.qty}/>
+                    </div>
+                    <button onClick={() => removeFromCart(itemData.id)} className={s.actions__deleteItemBtn}>
+                        Удалить
+                    </button>
+                </div>
             </div>
         </div>
     );
