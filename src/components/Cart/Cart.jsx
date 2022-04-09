@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {connect} from "react-redux";
 import CartItem from "./CartItem/CartItem";
 import s from "./Cart.module.css";
-import logo from "./../../assets/Icons/logo.svg";
 import emptyCart from "./../../assets/Cart/emptyCard.svg"
 
 const Cart = ({cart, currentBalance}) => {
