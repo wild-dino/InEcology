@@ -53,7 +53,7 @@ export const catalogReducer = (state = initialState, action) => {
             }
         case SET_ITEMS:
             return {
-                ...state, plantsList: [...action.items]
+                ...state, plantsList: [...state.plantsList, ...action.items]
             }
         default:
             return state;

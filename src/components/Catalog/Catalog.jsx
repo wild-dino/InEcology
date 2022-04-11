@@ -1,31 +1,25 @@
+import React, {useEffect} from "react";
 import s from "./Catalog.module.css";
 import PlantItem from "./PlantItem/PlantItem";
 import * as axios from "axios";
 
 const Catalog = (props) => {
 
-        if(props.plantsList.length === 0) {
-            axios.get("https://my-json-server.typicode.com/wild-dino/plantsList/db").then(response => {
-                props.setItems(response.data.plantsList);
-            });
-        }
+    useEffect(()=> {
+        const url = 'https://my-json-server.typicode.com/wild-dino/plantsList/db';
 
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                const json = await response.json();
+                props.setItems(json.plantsList);
+            } catch(error) {
+                console.log("error", error);
+            }
+        };
+        fetchData();
+    }, []);
 
-
-    // if(props.plantsList.length === 0) {
-    //     props.setItems(
-    //         [
-    //             {id: 1, image: 'boyarishnik.png', name: 'Боярышник', cost: 250},
-    //             {id: 2, image: 'gimolost.png', name: 'Жимолость', cost: 280},
-    //             {id: 3, image: 'rose.png', name: 'Роза', cost: 300},
-    //             {id: 4, image: 'jivuchka.png', name: 'Живучка ползучая', cost: 50},
-    //             {id: 5, image: 'boyarishnik.png', name: 'Боярышник', cost: 250},
-    //             {id: 6, image: 'gimolost.png', name: 'Жимолость', cost: 280},
-    //             {id: 7, image: 'rose.png', name: 'Роза', cost: 300},
-    //             {id: 8, image: 'jivuchka.png', name: 'Живучка ползучая', cost: 50}
-    //         ]
-    //     )
-    // }
 
     let plantItems = props.plantsList.map(p => <PlantItem key={p.id} id={p.id} image={p.image} name={p.name}
                                                           cost={p.cost}/>)
