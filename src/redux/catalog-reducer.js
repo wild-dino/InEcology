@@ -5,16 +5,6 @@ const LOAD_CURRENT_ITEM = 'LOAD_CURRENT_ITEM';
 const SET_ITEMS = 'SET_ITEMS';
 
 let initialState = {
-    // plantsList: [
-    //     {id: 1, image: 'boyarishnik.png', name: 'Боярышник', cost: 250},
-    //     {id: 2, image: 'gimolost.png', name: 'Жимолость', cost: 280},
-    //     {id: 3, image: 'rose.png', name: 'Роза', cost: 300},
-    //     {id: 4, image: 'jivuchka.png', name: 'Живучка ползучая', cost: 50},
-    //     {id: 5, image: 'boyarishnik.png', name: 'Боярышник', cost: 250},
-    //     {id: 6, image: 'gimolost.png', name: 'Жимолость', cost: 280},
-    //     {id: 7, image: 'rose.png', name: 'Роза', cost: 300},
-    //     {id: 8, image: 'jivuchka.png', name: 'Живучка ползучая', cost: 50}
-    // ],
     plantsList: [],
     cart: [],
     currentItem: null,
@@ -53,7 +43,7 @@ export const catalogReducer = (state = initialState, action) => {
             }
         case SET_ITEMS:
             return {
-                ...state, plantsList: [...state.plantsList, ...action.items]
+                ...state, plantsList: [...action.items]
             }
         default:
             return state;

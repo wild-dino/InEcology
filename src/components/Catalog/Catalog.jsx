@@ -1,27 +1,18 @@
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import s from "./Catalog.module.css";
 import PlantItem from "./PlantItem/PlantItem";
-import * as axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchData} from "../actions/itemsList";
 
 const Catalog = (props) => {
+    const dispatch = useDispatch();
+    const items = useSelector(state => state.catalog.plantsList)
 
     useEffect(()=> {
-        const url = 'https://my-json-server.typicode.com/wild-dino/plantsList/db';
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const json = await response.json();
-                props.setItems(json.plantsList);
-            } catch(error) {
-                console.log("error", error);
-            }
-        };
-        fetchData();
+        dispatch(fetchData());
     }, []);
 
-
-    let plantItems = props.plantsList.map(p => <PlantItem key={p.id} id={p.id} image={p.image} name={p.name}
+    let plantItems = items.map(p => <PlantItem key={p.id} id={p.id} image={p.image} name={p.name}
                                                           cost={p.cost}/>)
     return (
         <div className={s.catalog}>
