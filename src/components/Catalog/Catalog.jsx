@@ -6,7 +6,8 @@ import {fetchData} from "../actions/itemsList";
 
 const Catalog = (props) => {
     const dispatch = useDispatch();
-    const items = useSelector(state => state.catalog.plantsList)
+    const items = useSelector(state => state.catalog.plantsList);
+    const isFetching = useSelector(state => state.catalog.isFetching);
 
     useEffect(()=> {
         dispatch(fetchData());
@@ -20,9 +21,16 @@ const Catalog = (props) => {
                 килограмм пластика можно получить
                 10 природных баллов.</p>
             <div className={s.catalog__list}>
-                {plantItems}
+                {
+                    isFetching === false?
+                    plantItems
+                        :
+                        <div className={s.fetching}>
+
+                        </div>
+                }
             </div>
-            <button className={s.catalog__btn}>Загрузить еще</button>
+            {/*<button className={s.catalog__btn}>Загрузить еще</button>*/}
         </div>
     );
 };

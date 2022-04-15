@@ -3,12 +3,17 @@ const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 const ADJUST_QTY = 'ADJUST_QTY';
 const LOAD_CURRENT_ITEM = 'LOAD_CURRENT_ITEM';
 const SET_ITEMS = 'SET_ITEMS';
+const SET_IS_FETCHING = 'SET_IS_FETCHING';
 
 let initialState = {
     plantsList: [],
     cart: [],
     currentItem: null,
-    currentBalance: 250
+    currentBalance: 250,
+    currentPage: 1,
+    limitItems: 8,
+    totalCount: 0,
+    isFetching: true
 }
 
 export const catalogReducer = (state = initialState, action) => {
@@ -43,7 +48,14 @@ export const catalogReducer = (state = initialState, action) => {
             }
         case SET_ITEMS:
             return {
-                ...state, plantsList: [...action.items]
+                ...state,
+                plantsList: [...action.items],
+                isFetching: false
+            }
+        case SET_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.bool
             }
         default:
             return state;
@@ -55,5 +67,6 @@ export const removeFromCart = (itemId) => ({type: REMOVE_FROM_CART, itemId});
 export const adjustQty = (itemId, value) => ({type: ADJUST_QTY, itemId, value});
 export const loadCurrentItem = (item) => ({type: LOAD_CURRENT_ITEM, item});
 export const setItems = (items) => ({type: SET_ITEMS, items});
+export const setIsFetching = (bool) => ({type: SET_IS_FETCHING, bool});
 
 export default catalogReducer;
