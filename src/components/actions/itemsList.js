@@ -1,14 +1,14 @@
 import {setIsFetching, setItems} from "../../redux/catalog-reducer";
 
-export const fetchData = () => {
-    const url = 'https://my-json-server.typicode.com/wild-dino/plantsList/plantsList?_page=1&_limit=8';
+export const fetchData = (currentPage, limitItems) => {
+    const url = `https://my-json-server.typicode.com/wild-dino/plantsList/plantsList?_page=${currentPage}&_limit=${limitItems}`;
     return async (dispatch) => {
         try {
             dispatch(setIsFetching(true));
             const response = await fetch(url);
+            const total = response.headers.get('X-Total-Count');
             const json = await response.json();
-            dispatch(setItems(json));
-            // let total = response.headers.get('X-Total-Count');
+            dispatch(setItems(json, total));
         } catch(error) {
             console.log("error", error);
         }

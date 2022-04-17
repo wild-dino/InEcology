@@ -40,6 +40,32 @@
     margin-bottom: 100px;
 }
 
+.catalog__pages{
+    display: flex;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 100px;
+}
+
+.page, .currentPage {
+    cursor: pointer;
+    width: 100%;
+    margin-right: 13px;
+    padding: 10px;
+    border-radius: 10%;
+    color: white;
+    font-weight: bold;
+    background: #fca373;
+}
+
+.currentPage {
+    background: #fc5b22;
+}
+
+.page:hover {
+    background: #fc5b22;
+}
+
 .fetching {
     position: relative;
     top: 20vh;
@@ -50,7 +76,7 @@
     border: 3px dashed darkslategrey;
     z-index: 1;
     animation-name: seacrh-fetching;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: linear;
