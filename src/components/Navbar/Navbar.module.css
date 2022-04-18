@@ -26,3 +26,9 @@ a:hover {
 a.active {
     color: gold;
 }
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+}

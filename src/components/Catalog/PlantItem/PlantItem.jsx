@@ -21,11 +21,10 @@ const PlantItem = (props) => {
                 {props.name}
             </div>
             <div className={s.elements}>
-                <div className={s.icon}><img src={logo}/></div>
                 <div className={s.cost}>{props.cost}</div>
+                <div className={s.icon}><img src={logo}/></div>
                 <button onClick={onAddToCart} className={s.btn}><img src={cart}/></button>
             </div>
-
         </div>
     );
 };

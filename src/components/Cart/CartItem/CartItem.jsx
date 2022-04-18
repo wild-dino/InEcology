@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import s from './CartItem.module.css';
 import {connect} from 'react-redux';
 import {removeFromCart, adjustQty} from "../../../redux/catalog-reducer";
+import icon from "./../../../assets/Icons/logo.svg"
 
 const CartItem = ({itemData, removeFromCart, adjustQty}) => {
     const [input, setInput] = useState(itemData.qty);
@@ -13,14 +14,11 @@ const CartItem = ({itemData, removeFromCart, adjustQty}) => {
 
     return (
         <div className={s.cartItem}>
-            <img
-                className={s.cartItem__image}
-                src={require(`./../../../assets/Catalog/${itemData.image}`)}
-            />
+            <div className={s.cartItem__image}><img src={require(`./../../../assets/Catalog/${itemData.image}`)}/></div>
             <div className={s.flexContainer}>
                 <div className={s.cartItem__details}>
                     <p className={s.cartItem__title}>{itemData.name}</p>
-                    <p className={s.cartItem__cost}>{itemData.cost}</p>
+                    <div className={s.cartItem__cost}><p>{itemData.cost}</p><img src={icon}/></div>
                 </div>
                 <div className={s.cartItem__actions}>
                     <div className={s.cartItem__qty}>

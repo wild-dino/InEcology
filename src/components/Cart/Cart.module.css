@@ -12,7 +12,7 @@
     max-height: 200px;
     background-color: #DDFFB3;
     border-radius: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
 }
 
 .cart__items {
@@ -33,6 +33,16 @@
 .summary__price {
     padding-left: 30px;
     margin-bottom: 15px;
+}
+
+.totalPrice {
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.totalPrice img {
+    margin-left: 5px;
 }
 
 .emptyCart {
@@ -65,3 +75,27 @@
     background: linear-gradient(111deg, #FF7346, #FEC111);
 }
 
+.summary__btn:hover {
+    background: #fca373;
+}
+
+@media (max-width: 768px) {
+    .cart {
+        width: 100%;
+        max-width: 950px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart__summary {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        max-height: 200px;
+        background-color: #DDFFB3;
+        padding-bottom: 25px;
+    }
+
+}

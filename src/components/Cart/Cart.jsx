@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {connect} from "react-redux";
 import CartItem from "./CartItem/CartItem";
 import s from "./Cart.module.css";
-import emptyCart from "./../../assets/Cart/emptyCard.svg"
+import emptyCart from "./../../assets/Cart/emptyCard.svg";
+import logo from "./../../assets/Icons/logo.svg";
 
 const Cart = ({cart, currentBalance}) => {
     const [totalPrice, setTotalPrice] = useState(0);
@@ -31,7 +32,7 @@ const Cart = ({cart, currentBalance}) => {
                 <h4 className={s.summary__title}>Итог</h4>
                 <div className={s.summary__price}>
                     <div>Всего: {totalItems}</div>
-                    <div>{(totalPrice > currentBalance)? "Недостаточно средств :(" :  totalPrice }</div>
+                    <div>{(totalPrice > currentBalance)? "Недостаточно средств :(" : <div className={s.totalPrice}>{totalPrice}<img src={logo}/></div>}</div>
                 </div>
                 <button className={(totalPrice > currentBalance)? s.btnDisplayNone : s.summary__btn}>Оформить</button>
             </div>

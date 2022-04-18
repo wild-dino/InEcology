@@ -10,7 +10,7 @@ let initialState = {
     plantsList: [],
     cart: [],
     currentItem: null,
-    currentBalance: 250,
+    currentBalance: 1000,
     currentPage: 1,
     limitItems: 8,
     totalCount: 0,
