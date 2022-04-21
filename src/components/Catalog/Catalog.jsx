@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchData} from "../actions/itemsList";
 import {setCurrentPage} from "../../redux/catalog-reducer";
 import {createPages} from "../../utils/pagesCreator";
+import Preloader from "../Preloader/Preloader";
 
 const Catalog = (props) => {
     const dispatch = useDispatch();
@@ -28,14 +29,12 @@ const Catalog = (props) => {
             <p className={s.catalog__description}>Сдавая пластик в пункты приема, Вы получаете природные баллы. За один
                 килограмм пластика можно получить
                 10 природных баллов.</p>
-            <div className={s.catalog__list}>
+            <div className={ isFetching === false ? s.catalog__list : s.fetching }>
                 {
                     isFetching === false ?
                         plantItems
                         :
-                        <div className={s.fetching}>
-
-                        </div>
+                        <Preloader/>
                 }
             </div>
             {/*<button className={s.catalog__btn}>Загрузить еще</button>*/}

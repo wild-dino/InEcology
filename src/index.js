@@ -8,11 +8,11 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
 ReactDOM.render(
-    <BrowserRouter>
-        <React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
             <Provider store={store}><App/></Provider>
-        </React.StrictMode>
-    </BrowserRouter>, document.getElementById('root'));
+        </BrowserRouter>
+    </React.StrictMode>, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
