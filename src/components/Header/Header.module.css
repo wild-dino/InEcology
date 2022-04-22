@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   align-items: center;
-  grid-template-columns: 8fr 1fr 1fr;
+  grid-template-columns: 8fr 1fr 1fr 1fr;
   grid-area: h;
 }
 
@@ -52,6 +52,10 @@
   position: absolute;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.displayNone {
+  display: none;
 }
 
 

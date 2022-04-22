@@ -1,12 +1,19 @@
 import React from 'react';
 import {Navigate} from 'react-router-dom';
+import {useAuth} from "../../hooks/use-auth";
 
 const MainPage = () => {
-    return (
-        <div>
+    const {isAuth} = useAuth();
+
+    return isAuth ? (
+            <div>
+                <h2>Добро пожаловать!</h2>
+            </div>
+        )
+        :
+        (
             <Navigate to="/login"/>
-        </div>
-    );
+        )
 };
 
 export default MainPage;

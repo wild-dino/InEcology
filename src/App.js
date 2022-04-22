@@ -18,7 +18,7 @@ const App = (props) => {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/main" element={<MainPage store={props.store}/>}/>
-                        <Route path="/dialogs/:id" element={<DialogsContainer store={props.store}/>}/>
+                        <Route path="/dialogs/*" element={<DialogsContainer store={props.store}/>}/>
                         <Route path="/profile" element={<Profile store={props.store}/>}/>
                         <Route path="/catalog" element={<Catalog store={props.store}/>}/>
                         <Route path="/cart" element={<Cart store={props.store}/>}/>

@@ -1,13 +1,22 @@
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import s from './Header.module.css';
 import logo from './../../assets/Icons/InEcology.svg';
 import cartIcon from './../../assets/Icons/cart.svg';
-import {connect} from 'react-redux';
-import {NavLink} from "react-router-dom";
+import {connect, useDispatch} from 'react-redux';
+import {NavLink, useNavigate} from "react-router-dom";
+import {useAuth} from "../../hooks/use-auth";
+import {removeUser} from "../../redux/auth-reducer";
 
 const Header = ({cart}) => {
+    const dispatch = useDispatch();
     const [cartCount, setCartCount] = useState(0);
-    const isLogin = false;
+    const {isAuth} = useAuth();
+    let navigate = useNavigate();
+
+    const routeChange = () => {
+        let path = `/login`;
+        navigate(path);
+    }
 
     useEffect(() => {
         let count = 0;
@@ -20,20 +29,26 @@ const Header = ({cart}) => {
     return (
         <header className={s.header}>
             <img className={s.logo} src={logo}/>
-            <div className={s.avatar}>
+            <div className={isAuth ? s.avatar : s.displayNone}>
                 {
-                    isLogin ?
-                        <img
-                            src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"
-                            alt=""/>
-                        :
-                        <div></div>
+                    <img
+                        src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"
+                        alt=""/>
+
                 }
             </div>
-            <div className={s.cart}>
+            <div className={isAuth ? s.cart : s.displayNone}>
                 <NavLink to="/cart"> <img src={cartIcon}/></NavLink>
                 <div className={s.count}>{cartCount}</div>
             </div>
+            <button onClick={() => isAuth ? dispatch(removeUser()) : routeChange()}>
+                {
+                    isAuth ?
+                        "Выйти"
+                        :
+                        "Войти"
+                }
+            </button>
         </header>
     );
 };

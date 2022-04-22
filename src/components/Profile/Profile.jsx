@@ -4,16 +4,22 @@ import Posts from "./Posts/Posts";
 import PostsContainer from "./Posts/PostsContainer";
 import {Navigate} from "react-router-dom";
 import React from "react";
+import {useAuth} from "../../hooks/use-auth";
 
 const Profile = (props) => {
-    return (
-        <div>
+    const {isAuth} = useAuth();
+
+    return isAuth ? (
+            <div>
+                <Info/>
+                <PostsContainer
+                    store={props.store}/>
+            </div>
+        )
+        :
+        (
             <Navigate to="/login"/>
-            <Info/>
-            <PostsContainer
-                store={props.store}/>
-        </div>
-    );
+        )
 };
 
 export default Profile;

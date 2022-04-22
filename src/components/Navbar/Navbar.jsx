@@ -1,8 +1,11 @@
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
+import {useAuth} from "../../hooks/use-auth";
 
 const Navbar = () => {
-  return (
+    const {isAuth} = useAuth();
+
+  return isAuth? (
     <nav className={s.nav}>
       <div className={s.link}>
         <NavLink to = "/main" className={(navData) => navData.isActive? s.active: ''}>Главная</NavLink>
@@ -26,7 +29,11 @@ const Navbar = () => {
         <NavLink to="/cart" className={(navData) => navData.isActive? s.active: ''}>Корзина</NavLink>
       </div>
     </nav>
-  );
+  )
+      :
+      (
+          <></>
+      )
 };
 
 export default Navbar;

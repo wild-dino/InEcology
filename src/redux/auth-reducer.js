@@ -5,19 +5,19 @@ let initialState = {
     email: null,
     token: null,
     id: null,
-    isLogin: false
 }
 
 const AuthReducer = (state = initialState, action) => {
     switch (action.type) {
-        case setUser:
+        case SET_USER:
             return {
                 ...state,
                 email: action.payload.email,
                 token: action.payload.token,
-                id: action.payload.id
+                id: action.payload.id,
+                name: action.payload.name
             }
-        case removeUser:
+        case REMOVE_USER:
             return {
                 ...state,
                 email: null,
@@ -29,7 +29,7 @@ const AuthReducer = (state = initialState, action) => {
     }
 };
 
-export const setUser = (email, token, id) => ({type: SET_USER, payload: {email: email, token: token, id: id}});
+export const setUser = (email, token, id, name) => ({type: SET_USER, payload: {email: email, token: token, id: id, name: name}});
 export const removeUser = () => ({type: REMOVE_USER});
 
 export default AuthReducer;

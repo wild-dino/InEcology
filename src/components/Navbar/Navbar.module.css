@@ -27,6 +27,10 @@ a.active {
     color: gold;
 }
 
+.displayNone {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .nav {
         display: none;
