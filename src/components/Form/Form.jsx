@@ -1,11 +1,13 @@
 import {useState} from 'react';
+import Button from '../Button/Button';
+import s from './Form.module.css';
 
 const Form = ({title, handleClick}) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
     return (
-        <div>
+        <div className={s.form}>
             <input
                 type="email"
                 value={email}
@@ -18,12 +20,7 @@ const Form = ({title, handleClick}) => {
                 onChange={(e) => setPass(e.target.value)}
                 placeholder="Пароль"
             />
-            <button
-                onClick = {() => handleClick(email,pass)}
-            >
-                {title}
-            </button>
-
+            <Button title={title} className={'auth'}  onClick = {() => handleClick(email,pass)}/>
         </div>
     );
 };

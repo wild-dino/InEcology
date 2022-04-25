@@ -4,13 +4,14 @@
     min-height: 300px;
     flex-direction: column;
     align-items: center;
-    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
-    transition: transform 300ms linear;
+    border: 2px solid #e7e5e5;
+    transition: all 300ms linear;
 }
 
 .plantItem:hover {
     transform: scale(105%);
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
 }
 
 .plantImage {

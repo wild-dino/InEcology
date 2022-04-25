@@ -2,6 +2,9 @@ const SET_USER = 'SET_USER';
 const REMOVE_USER = 'REMOVE_USER';
 
 let initialState = {
+    loading: false,
+    currentUser: null,
+    error: null,
     email: null,
     token: null,
     id: null,

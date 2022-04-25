@@ -1,0 +1,35 @@
+.btnDisplayNone {
+    display: none;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    align-self: center;
+}
+
+.cart {
+    width: 100%;
+    background: linear-gradient(111deg, #FF7346, #FEC111);
+}
+
+.deleteItemBtn {
+    width: 65%;
+    background: linear-gradient(111deg, #FF7346, #FEC111);
+}
+
+.deleteItemBtn:hover, .cart:hover {
+    background: #ffe0d1;
+}
+
+.auth {
+    background: linear-gradient(111deg, #68bd78, #c8fd89);
+}
+
+.auth:hover {
+    background: #e7ffcb;
+}

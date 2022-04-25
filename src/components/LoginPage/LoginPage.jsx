@@ -1,9 +1,9 @@
-import React from 'react';
 import {NavLink,  useNavigate} from "react-router-dom";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {useDispatch} from "react-redux";
 import {Form} from "../Form/Form";
 import {setUser} from "../../redux/auth-reducer";
+import s from "./LoginPage.module.css";
 
 const LoginPage = () => {
     const dispatch = useDispatch();
@@ -22,9 +22,9 @@ const LoginPage = () => {
 
     return (
         <div>
-            <h2>Добро пожаловать!</h2>
+            <h2 className={s.title}>Добро пожаловать!</h2>
             <Form
-                title="Login"
+                title="Войти"
                 handleClick={handleLogin}
             />
             <div>или <NavLink to="/register">Зарегестрируйтесь</NavLink></div>

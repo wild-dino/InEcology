@@ -1,15 +1,33 @@
+ul {
+  list-style-type: none;
+}
+
 .header {
+  position: fixed;
   width: 100%;
-  display: grid;
+  left: 0;
+  top: 0;
+  background-color: #efffd8;
+  z-index: 10;
+}
+
+.headerNav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.item {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  grid-template-columns: 8fr 1fr 1fr 1fr;
-  grid-area: h;
 }
 
 .cart {
   cursor: pointer;
   width: 30px;
-  height: 25px;
+  height: 30px;
   position: relative;
 }
 
@@ -19,11 +37,12 @@
 
 .count {
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
   max-width: 25px;
   text-align: center;
   background-color: #9FC059;
   position: absolute;
+  padding-bottom: 10%;
   border-radius: 50%;
   color: white;
   top: 0;
@@ -35,23 +54,11 @@
   height: 30px;
 }
 
-.avatar {
-  display: inline-block;
-  overflow: hidden;
-  width: 30%;
-  padding-bottom: 30%;
-  height: 0;
-  position: relative;
-  justify-self: flex-end;
-  margin-right: 42px;
-}
-
 .avatar img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .displayNone {

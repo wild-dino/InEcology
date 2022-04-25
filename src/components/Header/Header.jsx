@@ -6,6 +6,7 @@ import {connect, useDispatch} from 'react-redux';
 import {NavLink, useNavigate} from "react-router-dom";
 import {useAuth} from "../../hooks/use-auth";
 import {removeUser} from "../../redux/auth-reducer";
+import Button from "../Button/Button";
 
 const Header = ({cart}) => {
     const dispatch = useDispatch();
@@ -28,27 +29,26 @@ const Header = ({cart}) => {
 
     return (
         <header className={s.header}>
-            <img className={s.logo} src={logo}/>
-            <div className={isAuth ? s.avatar : s.displayNone}>
-                {
-                    <img
-                        src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"
-                        alt=""/>
-
-                }
-            </div>
-            <div className={isAuth ? s.cart : s.displayNone}>
-                <NavLink to="/cart"> <img src={cartIcon}/></NavLink>
-                <div className={s.count}>{cartCount}</div>
-            </div>
-            <button onClick={() => isAuth ? dispatch(removeUser()) : routeChange()}>
-                {
-                    isAuth ?
+            <ul className={s.headerNav}>
+                <li className={s.item}><img className={s.logo} src={logo}/></li>
+                <li className={s.item} >
+                    <div className={isAuth ? s.avatar : s.displayNone}>
+                        {
+                            <img
+                                src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"
+                                alt=""/>
+                        }
+                    </div>
+                    <div className={isAuth ? s.cart : s.displayNone}>
+                        <NavLink to="/cart"> <img src={cartIcon}/></NavLink>
+                        <div className={s.count}>{cartCount}</div>
+                    </div>
+                    <Button onClick={() => isAuth ? dispatch(removeUser()) : routeChange()} title={isAuth ?
                         "Выйти"
                         :
-                        "Войти"
-                }
-            </button>
+                        "Войти"} className={'auth'}/>
+                </li>
+            </ul>
         </header>
     );
 };

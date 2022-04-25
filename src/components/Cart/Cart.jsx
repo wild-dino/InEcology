@@ -4,6 +4,7 @@ import CartItem from "./CartItem/CartItem";
 import s from "./Cart.module.css";
 import emptyCart from "./../../assets/Cart/emptyCard.svg";
 import logo from "./../../assets/Icons/logo.svg";
+import Button from "../Button/Button";
 
 const Cart = ({cart, currentBalance}) => {
     const [totalPrice, setTotalPrice] = useState(0);
@@ -25,16 +26,21 @@ const Cart = ({cart, currentBalance}) => {
     const cartElements = cart.map(item => <CartItem itemData={item} key={item.id}/>)
     return (
         <div className={s.cart}>
-            <div className={s.cart__items}>
-                {(cart.length === 0)? <div className={s.emptyCart}>В корзине пусто :(<img src={emptyCart}/></div> : cartElements}
+            <div className={s.items}>
+                {(cart.length === 0) ?
+                    <div className={s.emptyCart}>В корзине пусто :(<img src={emptyCart}/></div> : cartElements}
             </div>
-            <div className={s.cart__summary}>
-                <h4 className={s.summary__title}>Итог</h4>
-                <div className={s.summary__price}>
-                    <div>Всего: {totalItems}</div>
-                    <div>{(totalPrice > currentBalance)? "Недостаточно средств :(" : <div className={s.totalPrice}>{totalPrice}<img src={logo}/></div>}</div>
+            <div className={s.summary}>
+                <div className={s.card}>
+                    <h4 className={s.title}>Итог</h4>
+                    <div className={s.price}>
+                        <div>Всего: {totalItems}</div>
+                        <div>{(totalPrice > currentBalance) ? "Недостаточно средств :(" :
+                            <div className={s.totalPrice}>{totalPrice}<img src={logo}/></div>}</div>
+                    </div>
+                    <Button className={(totalPrice > currentBalance) ? 'btnDisplayNone' : 'cart'} name={cart}
+                            title={'Оформить'}/>
                 </div>
-                <button className={(totalPrice > currentBalance)? s.btnDisplayNone : s.summary__btn}>Оформить</button>
             </div>
         </div>
     );

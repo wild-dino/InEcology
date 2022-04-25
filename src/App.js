@@ -11,6 +11,7 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 
 const App = (props) => {
+
     return (
             <div className="app-wrapper">
                 <Header/>
@@ -27,7 +28,7 @@ const App = (props) => {
                     </Routes>
                 </div>
             </div>
-    );
+        );
 };
 
 export default App;
