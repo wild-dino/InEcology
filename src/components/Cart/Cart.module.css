@@ -22,12 +22,10 @@
 }
 
 .items {
-    width: 100%;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
-    margin-left: 40px;
+    align-items: center;
 }
 
 .title {
