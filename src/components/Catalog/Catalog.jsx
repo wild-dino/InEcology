@@ -2,7 +2,7 @@ import {useEffect} from "react";
 import s from "./Catalog.module.css";
 import PlantItem from "./PlantItem/PlantItem";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchData} from "../actions/itemsList";
+import {fetchData} from "../../redux/actions/itemsList";
 import {setCurrentPage} from "../../redux/catalog-reducer";
 import {createPages} from "../../utils/pagesCreator";
 import Preloader from "../Preloader/Preloader";

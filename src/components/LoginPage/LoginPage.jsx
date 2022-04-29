@@ -1,10 +1,9 @@
 import {NavLink, useNavigate} from "react-router-dom";
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {useDispatch} from "react-redux";
-import {Form} from "../Form/Form";
-import {setUser} from "../../redux/auth-reducer";
+import {useDispatch, useSelector} from "react-redux";
 import s from "./LoginPage.module.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {loginInitiate} from "../../redux/actions/authInitiate";
+import Button from "../Button/Button";
 
 const LoginPage = () => {
     const [state, setState] = useState({
@@ -12,34 +11,35 @@ const LoginPage = () => {
         password: ''
     });
 
-    const {email, password} = state;
-
-    const dispatch = useDispatch();
+    const {currentUser} = useSelector(state => state.user);
     const navigate = useNavigate();
 
-    const handleLogin = (email, password) => {
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
-            .then(({user}) => {
-                console.log(user);
-                dispatch(setUser(user.email, user.accessToken, user.uid));
-                navigate('/main');
-            })
-            .catch(console.error)
-    }
+    useEffect(() => {
+        if (currentUser) {
+            navigate('/main');
+        }
+    }, [currentUser, navigate]);
+
+
+    const dispatch = useDispatch();
+    const {email, password} = state;
 
     const handleSubmit = () => {
-    }
-    const handleChange = () => {
-    }
+        if (!email || ![password]) {
+            return;
+        }
+        dispatch(loginInitiate(email, password));
+        setState({email: '', password: ''});
+    };
+
+    const handleChange = (e) => {
+        let {name, value} = e.target;
+        setState({...state, [name]: value});
+    };
 
     return (
-        <div>
+        <div className={s.authSection}>
             <h2 className={s.title}>Добро пожаловать!</h2>
-            {/*<Form*/}
-            {/*    title="Войти"*/}
-            {/*    handleClick={handleLogin}*/}
-            {/*/>*/}
             <form className={s.formSignin} onSubmit={handleSubmit}>
                 <h3>Войдите</h3>
                 <input
@@ -57,12 +57,12 @@ const LoginPage = () => {
                     id="inputPassword"
                     className="form-control2"
                     placeholder="Password"
-                    name="email"
+                    name="password"
                     onChange={handleChange}
                     value={password}
                     required
                 />
-                <button className={s.btn} type="submit">Войти</button>
+                <Button className={'auth'} onClick={handleSubmit} title={'Войти'}>Войти</Button>
             </form>
             <div>Нет аккаунта? <NavLink to="/register">Зарегестрируйтесь</NavLink></div>
         </div>

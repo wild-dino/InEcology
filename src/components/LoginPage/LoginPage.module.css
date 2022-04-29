@@ -1,3 +1,10 @@
-.title {
-    color: #223b08;
+.authSection {
+    width: 100%;
+    background-color: #DDFFB3;
+}
+
+.formSignin {
+    display: flex;
+    flex-direction: column;
+    background-color: #DDFFB3;
 }

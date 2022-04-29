@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import {NavLink, useNavigate} from "react-router-dom";
 import {Form} from "../Form/Form";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setUser} from "../../redux/auth-reducer";
 import s from "../LoginPage/LoginPage.module.css";
+import {authInitiate} from "../../redux/actions/authInitiate";
+import Button from "../Button/Button";
 
 const RegisterPage = () => {
     const [state, setState] = useState({
@@ -14,33 +16,35 @@ const RegisterPage = () => {
         passwordConfirm: ""
     });
 
-    const {email, password, displayName, passwordConfirm} = state;
-    const dispatch = useDispatch();
+    const {currentUser} = useSelector(state => state.user);
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
-    }
-    const handleChange = () => {
-    }
+    useEffect(() => {
+        if(currentUser) {
+            navigate('/main');
+        }
+    }, [currentUser, navigate]);
 
-    const handleRegister = (email, password) => {
-        const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(({user}) => {
-                console.log(user);
-                dispatch(setUser(user.email, user.accessToken, user.uid));
-                navigate('/main');
-            })
-            .catch(console.error)
+
+    const dispatch = useDispatch();
+
+    const {email, password, displayName, passwordConfirm} = state;
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(password !== passwordConfirm) {
+            return;
+        }
+        dispatch(authInitiate(email, password, displayName));
+        setState({email: '', displayName: '', password: '', passwordConfirm: ''});
+    }
+    const handleChange = (e) => {
+        let {name, value} = e.target;
+        setState({...state, [name]: value});
     }
 
     return (
         <div>
             <h2>Регистрация</h2>
-            {/*<Form*/}
-            {/*    title="Register"*/}
-            {/*    handleClick={handleRegister}*/}
-            {/*/>*/}
             <form className={s.formSignin} onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -82,7 +86,7 @@ const RegisterPage = () => {
                     value={passwordConfirm}
                     required
                 />
-                <button className={s.btn} type="submit">Регистрация</button>
+                <Button className='auth' onClick={handleSubmit} title='Регистрация' />
             </form>
             <div><NavLink to="/login"> Назад </NavLink></div>
         </div>

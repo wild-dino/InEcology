@@ -9,20 +9,59 @@ import Catalog from "./components/Catalog/Catalog";
 import MainPage from "./components/MainPage/MainPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import {onAuthStateChanged} from "firebase/auth";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import {auth} from "./firebase";
+import {setUser} from "./redux/auth-reducer";
 
 const App = (props) => {
+    const dispatch = useDispatch();
+
+    useEffect(()=> {
+        onAuthStateChanged(auth, (user) => {
+            if(user) {
+                dispatch(setUser(user));
+            } else {
+                dispatch(setUser(null));
+            }
+        });
+    }, [dispatch]);
 
     return (
             <div className="app-wrapper">
                 <Header/>
-                <Navbar/>
+                <PrivateRoute>
+                    <Navbar/>
+                </PrivateRoute>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path="/main" element={<MainPage store={props.store}/>}/>
-                        <Route path="/dialogs/*" element={<DialogsContainer store={props.store}/>}/>
-                        <Route path="/profile" element={<Profile store={props.store}/>}/>
-                        <Route path="/catalog" element={<Catalog store={props.store}/>}/>
-                        <Route path="/cart" element={<Cart store={props.store}/>}/>
+                        <Route path="/main" element={
+                            <PrivateRoute>
+                                <MainPage store={props.store}/>
+                            </PrivateRoute>}>
+                        </Route>
+                        <Route path="/dialogs/*" element={
+                            <PrivateRoute>
+                                <DialogsContainer store={props.store}/>
+                            </PrivateRoute>}>
+                        </Route>
+                        <Route path="/profile" element={
+                            <PrivateRoute>
+                                <Profile store={props.store}/>
+                            </PrivateRoute>}>
+                        </Route>
+                         <Route path="/catalog" element={
+                            <PrivateRoute>
+                                <Catalog store={props.store}/>
+                            </PrivateRoute>}>
+                        </Route>
+                        <Route path="/cart" element={
+                            <PrivateRoute>
+                                <Cart store={props.store}/>
+                            </PrivateRoute>}>
+                        </Route>
                         <Route path="/login" element={<LoginPage store={props.store}/>}/>
                         <Route path="/register" element={<RegisterPage store={props.store}/>}/>
                     </Routes>

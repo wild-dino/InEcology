@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app";
 // import firebase from "firebase/compat/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged} from "firebase/auth";
 
 //
 const firebaseConfig = {
