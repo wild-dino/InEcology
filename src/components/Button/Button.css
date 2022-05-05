@@ -12,7 +12,7 @@
     align-self: center;
 }
 
-.cart {
+.orange {
     width: 100%;
     background: linear-gradient(111deg, #FF7346, #FEC111);
 }
@@ -32,4 +32,8 @@
 
 .auth:hover {
     background: #e7ffcb;
+}
+
+.uploadBtn {
+    background: linear-gradient(111deg, #68bd78, #c8fd89);
 }

@@ -6,13 +6,15 @@ import {useDispatch, useSelector} from 'react-redux';
 import {NavLink, useNavigate} from "react-router-dom";
 import Button from "../Button/Button";
 import {logoutInitiate} from "../../redux/actions/authInitiate";
+import avatar from './../../assets/Profile/avatar.jpg';
 
 const Header = () => {
-    const {currentUser} = useSelector(state => state.user);
+    const currentUser = useSelector(state => state.user);
     const cart = useSelector(state => state.catalog.cart);
     const dispatch = useDispatch();
     const [cartCount, setCartCount] = useState(0);
     let navigate = useNavigate();
+    const profilePhoto = '';
 
     useEffect(() => {
         let count = 0;
@@ -37,7 +39,7 @@ const Header = () => {
                     <div className={currentUser? s.avatar : s.displayNone}>
                         {
                             <img
-                                src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"
+                                src={currentUser.photoURL}
                                 alt=""/>
                         }
                     </div>

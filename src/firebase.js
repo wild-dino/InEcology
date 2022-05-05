@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app";
-// import firebase from "firebase/compat/app";
-import { getAuth, onAuthStateChanged} from "firebase/auth";
+import { getAuth, onAuthStateChanged, updateProfile} from "firebase/auth";
+import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 
 //
 const firebaseConfig = {
@@ -14,8 +14,20 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+const storage = getStorage(app);
 auth.onAuthStateChanged(user => {
     // Check for user status
 });
+
+export async function upload(file, currentUser, setLoading) {
+    debugger;
+    const fileRef = ref(storage, currentUser.uid + '.png');
+    setLoading(true);
+    const snapshot = await uploadBytes(fileRef, file);
+    const photoURL = await getDownloadURL(fileRef);
+    updateProfile(currentUser, {photoURL: photoURL});
+    setLoading(false);
+    window.location.reload();
+}
 
 export {auth};

@@ -1,11 +1,12 @@
 import s from './Post.module.css';
+import avatar from './../../../../assets/Profile/avatar.jpg';
 
 const Post = (props) => {
     return (
         <div className={s.postItem}>
             <div className={s.avatar}>
                 <img
-                    src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg"/>
+                    src={avatar}/>
             </div>
             <div className={s.postText}>
                 {props.message}

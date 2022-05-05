@@ -24,7 +24,7 @@ const CartItem = ({itemData, removeFromCart, adjustQty}) => {
                 <div className={s.cartItemActions}>
                     <div className={s.cartItemQty}>
                         <label htmlFor="qty">Количество</label>
-                        <input onChange={onChangeHandler} min="1" type="number" id="qty" name="qty"
+                        <input className={s.qty} onChange={onChangeHandler} min="1" type="number" id="qty" name="qty"
                                value={itemData.qty}/>
                     </div>
                     <Button onClick={() => removeFromCart(itemData.id)} className={'deleteItemBtn'} title={'Удалить'}/>

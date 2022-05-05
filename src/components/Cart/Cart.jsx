@@ -38,7 +38,7 @@ const Cart = ({cart, currentBalance}) => {
                         <div>{(totalPrice > currentBalance) ? "Недостаточно средств :(" :
                             <div className={s.totalPrice}>{totalPrice}<img src={logo}/></div>}</div>
                     </div>
-                    <Button className={(totalPrice > currentBalance) ? 'btnDisplayNone' : 'cart'} name={cart}
+                    <Button className={(totalPrice > currentBalance) ? 'btnDisplayNone' : 'orange'} name={cart}
                             title={'Оформить'}/>
                 </div>
             </div>

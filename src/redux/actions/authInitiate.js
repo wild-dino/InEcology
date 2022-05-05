@@ -42,3 +42,4 @@ export const logoutInitiate = () => {
             .catch((error) => dispatch(logoutFail(error.message)));
     };
 };
+

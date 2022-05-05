@@ -7,13 +7,10 @@ const Posts = (props) => {
 
     let newPostElement = React.createRef();
 
-    // add data in state
 
     let onAddPost = () => {
         props.addPost();
     }
-
-    // get data in state
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
@@ -24,7 +21,7 @@ const Posts = (props) => {
         <div className={s.posts}>
             <div className={s.postsMain}>Мои посты</div>
             <div className={s.addPost}>
-                <textarea onChange={onPostChange} ref={newPostElement}  value={props.newPostText}/>
+                <textarea onChange={onPostChange} ref={newPostElement}  value={props.newPostText} placeholder="Чем можете поделиться?"/>
                 <button onClick={onAddPost} className={s.btn}>Добавить</button>
             </div>
             {postElements}
