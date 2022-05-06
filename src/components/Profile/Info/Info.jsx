@@ -1,18 +1,19 @@
 import Balance from "./Balance/Balance";
 import s from './Info.module.css';
-import avatar from './../../../assets/Profile/avatar.jpg'
-import {useSelector} from "react-redux";
+import avatar from './../../../assets/Profile/avatar.jpg';
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {upload} from "../../../firebase";
 import Button from "../../Button/Button";
 import Preloader from "../../Preloader/Preloader";
+import {upload} from "../../../redux/actions/authInitiate";
 
 const Info = () => {
     const currentUser = useSelector(state => state.user.currentUser);
+    const loading = useSelector(state => state.user.loading);
     const name = useSelector(state => state.user.currentUser.displayName);
     const [photo, setPhoto] = useState(null);
-    const [loading, setLoading] = useState(false);
     const [photoURL, setPhotoURL] = useState(avatar);
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -21,7 +22,7 @@ const Info = () => {
     }
 
     const handleClick = () => {
-        upload(photo, currentUser, setLoading)
+        dispatch(upload(photo, currentUser));
     }
 
     useEffect(() => {

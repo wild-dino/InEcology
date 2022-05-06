@@ -9,12 +9,12 @@ import {logoutInitiate} from "../../redux/actions/authInitiate";
 import avatar from './../../assets/Profile/avatar.jpg';
 
 const Header = () => {
-    const currentUser = useSelector(state => state.user);
+    const currentUser = useSelector(state => state.user.currentUser);
     const cart = useSelector(state => state.catalog.cart);
     const dispatch = useDispatch();
     const [cartCount, setCartCount] = useState(0);
     let navigate = useNavigate();
-    const profilePhoto = '';
+    const profilePhoto = useSelector(state => state.user.userPhoto);
 
     useEffect(() => {
         let count = 0;
@@ -25,7 +25,7 @@ const Header = () => {
     }, [cart, cartCount])
 
     const handleAuth = () => {
-        if(currentUser) {
+        if (currentUser) {
             dispatch(logoutInitiate());
             navigate('/login');
         }
@@ -36,20 +36,22 @@ const Header = () => {
             <ul className={s.headerNav}>
                 <li className={s.item}><img className={s.logo} src={logo}/></li>
                 <li className={s.item}>
-                    <div className={currentUser? s.avatar : s.displayNone}>
-                        {
-                            <img
-                                src={currentUser.photoURL}
-                                alt=""/>
-                        }
-                    </div>
-                    <div className={ currentUser? s.cart : s.displayNone}>
+                        <div className={currentUser ? s.avatar : s.displayNone}>
+                            {
+                                <NavLink to="/profile">
+                                <img
+                                    src={profilePhoto ? profilePhoto : avatar}
+                                    alt=""/>
+                                </NavLink>
+                            }
+                        </div>
+                    <div className={currentUser ? s.cart : s.displayNone}>
                         <NavLink to="/cart"> <img src={cartIcon}/></NavLink>
                         <div className={s.count}>{cartCount}</div>
                     </div>
                     <Button onClick={handleAuth}
-                        title={"Выйти"}
-                        className={ currentUser? 'auth' : 'btnDisplayNone'} />
+                            title={"Выйти"}
+                            className={currentUser ? 'auth' : 'btnDisplayNone'}/>
                 </li>
             </ul>
         </header>

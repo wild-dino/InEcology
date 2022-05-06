@@ -54,11 +54,24 @@ ul {
   height: 30px;
 }
 
-.avatar img {
+.avatar {
   cursor: pointer;
-  width: 35px;
-  height: 35px;
+  display: inline-block;
+  overflow: hidden;
+  width: 14%;
   border-radius: 50%;
+  padding-bottom: 14%;
+  height: 0;
+  position: relative;
+  /*margin-left: 40px;*/
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .displayNone {

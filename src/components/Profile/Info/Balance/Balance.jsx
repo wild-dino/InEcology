@@ -3,7 +3,7 @@ import icon from "./../../../../assets/Icons/logo.svg"
 import {useSelector} from "react-redux";
 
 const Balance = () => {
-    const balance = useSelector(state => state.profilePage.currentBalance);
+    const balance = useSelector(state => state.profilePosts.currentBalance);
 
     return (
         <div className={s.balance}>

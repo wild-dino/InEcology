@@ -14,7 +14,7 @@ import {onAuthStateChanged} from "firebase/auth";
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {auth} from "./firebase";
-import {setUser} from "./redux/auth-reducer";
+import {setUser, setUserPhoto} from "./redux/auth-reducer";
 
 const App = (props) => {
     const dispatch = useDispatch();
@@ -23,6 +23,7 @@ const App = (props) => {
         onAuthStateChanged(auth, (user) => {
             if(user) {
                 dispatch(setUser(user));
+                dispatch(setUserPhoto(user.photoURL));
             } else {
                 dispatch(setUser(null));
             }

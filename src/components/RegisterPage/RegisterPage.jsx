@@ -25,7 +25,6 @@ const RegisterPage = () => {
         }
     }, [currentUser, navigate]);
 
-
     const dispatch = useDispatch();
 
     const {email, password, displayName, passwordConfirm} = state;
