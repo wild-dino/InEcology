@@ -1,5 +1,6 @@
 .posts {
     margin-left: 40px;
+    margin-bottom: 50px;
 }
 
 .postsMain {
@@ -19,6 +20,14 @@
     margin-top: 30px;
     border-radius: 15px;
     background-color: #DDFFB3;
+}
+
+.emptyPosts {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9a8e8e;
 }
 
 textarea {

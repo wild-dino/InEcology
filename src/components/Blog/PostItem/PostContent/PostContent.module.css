@@ -1,0 +1,51 @@
+.post {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 50px;
+}
+
+.postHeader {
+    padding: 20px;
+    background-color: #e7ffcb;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.avatar {
+    display: inline-block;
+    overflow: hidden;
+    width: 10%;
+    padding-bottom: 10%;
+    height: 0;
+    position: relative;
+    justify-self: flex-end;
+    margin-bottom: 5px;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.postText {
+    width: 100%;
+    line-height: 1.7;
+    white-space: pre-line;
+    word-wrap: break-word;
+}

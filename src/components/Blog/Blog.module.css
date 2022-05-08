@@ -1,0 +1,14 @@
+.blog {
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}

@@ -12,16 +12,18 @@ import RegisterPage from "./components/RegisterPage/RegisterPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import {onAuthStateChanged} from "firebase/auth";
 import {useDispatch} from "react-redux";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {auth} from "./firebase";
 import {setUser, setUserPhoto} from "./redux/auth-reducer";
+import Blog from "./components/Blog/Blog";
+import PostContent from "./components/Blog/PostItem/PostContent/PostContent";
 
 const App = (props) => {
     const dispatch = useDispatch();
 
-    useEffect(()=> {
+    useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            if(user) {
+            if (user) {
                 dispatch(setUser(user));
                 dispatch(setUserPhoto(user.photoURL));
             } else {
@@ -31,44 +33,54 @@ const App = (props) => {
     }, [dispatch]);
 
     return (
-            <div className="app-wrapper">
-                <Header/>
-                <PrivateRoute>
-                    <Navbar/>
-                </PrivateRoute>
-                <div className="app-wrapper-content">
-                    <Routes>
-                        <Route path="/main" element={
-                            <PrivateRoute>
-                                <MainPage store={props.store}/>
-                            </PrivateRoute>}>
-                        </Route>
-                        <Route path="/dialogs/*" element={
-                            <PrivateRoute>
-                                <DialogsContainer store={props.store}/>
-                            </PrivateRoute>}>
-                        </Route>
-                        <Route path="/profile" element={
-                            <PrivateRoute>
-                                <Profile store={props.store}/>
-                            </PrivateRoute>}>
-                        </Route>
-                         <Route path="/catalog" element={
-                            <PrivateRoute>
-                                <Catalog store={props.store}/>
-                            </PrivateRoute>}>
-                        </Route>
-                        <Route path="/cart" element={
-                            <PrivateRoute>
-                                <Cart store={props.store}/>
-                            </PrivateRoute>}>
-                        </Route>
-                        <Route path="/login" element={<LoginPage store={props.store}/>}/>
-                        <Route path="/register" element={<RegisterPage store={props.store}/>}/>
-                    </Routes>
-                </div>
+        <div className="app-wrapper">
+            <Header/>
+            <PrivateRoute>
+                <Navbar/>
+            </PrivateRoute>
+            <div className="app-wrapper-content">
+                <Routes>
+                    <Route path="/" element={
+                        <PrivateRoute>
+                            <MainPage store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="/dialogs/*" element={
+                        <PrivateRoute>
+                            <DialogsContainer store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="/profile" element={
+                        <PrivateRoute>
+                            <Profile store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="/catalog" element={
+                        <PrivateRoute>
+                            <Catalog store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="blog" element={
+                        <PrivateRoute>
+                            <Blog store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="blog/:id" element={
+                        <PrivateRoute>
+                            <PostContent store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="/cart" element={
+                        <PrivateRoute>
+                            <Cart store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="/login" element={<LoginPage store={props.store}/>}/>
+                    <Route path="/register" element={<RegisterPage store={props.store}/>}/>
+                </Routes>
             </div>
-        );
+        </div>
+    );
 };
 
 export default App;

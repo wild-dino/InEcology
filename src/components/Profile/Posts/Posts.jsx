@@ -7,13 +7,14 @@ import {addPost, updateNewPostText} from "../../../redux/posts-reducer";
 const Posts = (props) => {
     let [post, setPost] = useState('');
     const posts = useSelector(state => state.profilePosts.posts);
+    const currentUser = useSelector(state => state.user.currentUser);
     const newPostText = useSelector(state => state.profilePosts.newPostText);
     let postElements = posts.sort((a, b) => b.id - a.id).map(p => <Post post={p} key={p.id}/>);
     const dispatch = useDispatch();
 
     let onAddPost = () => {
-        let id = Date.now();
-        dispatch(addPost(id, post));
+        let id = String(Date.now());
+        dispatch(addPost(id, post, currentUser.displayName, currentUser.photoURL));
         setPost(post = '');
     }
 
@@ -30,7 +31,12 @@ const Posts = (props) => {
                 <textarea onChange={onPostChange} value={newPostText} placeholder="Чем можете поделиться?"/>
                 <button onClick={onAddPost} className={s.btn}>Добавить</button>
             </div>
-            {postElements}
+            {
+                Array.isArray(postElements) && postElements.length?
+                    postElements
+                    :
+                    <div className={s.emptyPosts}>Начните писать посты и добавлять их в блог, чтобы другие могли их прочесть :)</div>
+            }
         </div>
     )
 }

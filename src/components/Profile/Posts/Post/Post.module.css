@@ -31,8 +31,8 @@
 
 .postText {
     width: 100%;
-    /*max-width: 800px;*/
     line-height: 1.7;
+    white-space: pre-line;
     word-wrap: break-word;
 }
 
