@@ -6,7 +6,7 @@ import {Routes, Route} from 'react-router-dom';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Cart from './components/Cart/Cart';
 import Catalog from "./components/Catalog/Catalog";
-import MainPage from "./components/MainPage/MainPage";
+import News from "./components/News/News";
 import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -40,9 +40,9 @@ const App = (props) => {
             </PrivateRoute>
             <div className="app-wrapper-content">
                 <Routes>
-                    <Route path="/" element={
+                    <Route path="/main" element={
                         <PrivateRoute>
-                            <MainPage store={props.store}/>
+                            <News store={props.store}/>
                         </PrivateRoute>}>
                     </Route>
                     <Route path="/dialogs/*" element={

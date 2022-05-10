@@ -1,0 +1,30 @@
+.news {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.newsHeaderTitle {
+
+}
+
+.newsHeaderBtn {
+    border: 0;
+    background-color: #9FC059;
+}
+
+.newsContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin-left: 40px;
+}
+
