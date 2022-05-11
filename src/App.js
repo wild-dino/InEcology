@@ -17,6 +17,7 @@ import {auth} from "./firebase";
 import {setUser, setUserPhoto} from "./redux/auth-reducer";
 import Blog from "./components/Blog/Blog";
 import PostContent from "./components/Blog/PostItem/PostContent/PostContent";
+import SelectedNew from "./components/News/SelectedNew/SelectedNew";
 
 const App = (props) => {
     const dispatch = useDispatch();
@@ -40,9 +41,14 @@ const App = (props) => {
             </PrivateRoute>
             <div className="app-wrapper-content">
                 <Routes>
-                    <Route path="/main" element={
+                    <Route path="/news" element={
                         <PrivateRoute>
                             <News store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="/news/:newIdParam" element={
+                        <PrivateRoute>
+                            <SelectedNew store={props.store}/>
                         </PrivateRoute>}>
                     </Route>
                     <Route path="/dialogs/*" element={

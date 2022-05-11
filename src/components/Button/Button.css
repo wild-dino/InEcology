@@ -22,7 +22,7 @@
     background: linear-gradient(111deg, #FF7346, #FEC111);
 }
 
-.deleteItemBtn:hover, .cart:hover {
+.deleteItemBtn:hover, .orange:hover {
     background: #ffe0d1;
 }
 

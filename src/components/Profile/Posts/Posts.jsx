@@ -3,6 +3,7 @@ import s from './Posts.module.css';
 import Post from "./Post/Post";
 import {useDispatch, useSelector} from "react-redux";
 import {addPost, updateNewPostText} from "../../../redux/posts-reducer";
+import Button from "../../Button/Button";
 
 const Posts = (props) => {
     let [post, setPost] = useState('');
@@ -29,7 +30,7 @@ const Posts = (props) => {
             <div className={s.postsMain}>Мои посты</div>
             <div className={s.addPost}>
                 <textarea onChange={onPostChange} value={newPostText} placeholder="Чем можете поделиться?"/>
-                <button onClick={onAddPost} className={s.btn}>Добавить</button>
+                <Button onClick={onAddPost} className='orange' title="Добавить"/>
             </div>
             {
                 Array.isArray(postElements) && postElements.length?

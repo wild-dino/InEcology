@@ -8,7 +8,7 @@ const PostItem = ({post}) => {
 
     return (
         <div className={s.postItem} onClick={() => {
-            navigate(`/blog/${post.id}`)
+            navigate(`/blog/${post.id}`);
         }}>
             <div className={s.postHeader}>
                 <div className={s.userInfo}>

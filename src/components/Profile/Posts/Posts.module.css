@@ -34,19 +34,3 @@ textarea {
     border: none;
     width: 85%;
 }
-
-.btn {
-    cursor: pointer;
-    width: 100%;
-    max-width: 100px;
-    border: 0;
-    border-radius: 30px;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    background: linear-gradient(111deg, #FF7346, #FEC111);
-}
-
-.btn:hover {
-    background: #fca373;
-}

@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import s from "./PostContent.module.css";
-import avatar from "../../../../assets/Profile/avatar.jpg";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {displayCurrentPost} from "../../../../redux/posts-reducer";
@@ -10,10 +9,7 @@ const PostContent = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
 
-    console.log(currentPost);
-
     useEffect(() => {
-        debugger
         dispatch(displayCurrentPost(id));
     }, [id, dispatch]);
 

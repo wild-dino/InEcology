@@ -1,0 +1,44 @@
+.new {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newHeaderTitle {
+    width: 100%;
+    max-width: 90%;
+    margin: 0;
+}
+
+.newHeaderImage {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    padding-bottom: 30%;
+    height: 0;
+}
+
+.newHeaderImage img {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.newText {
+    width: 100%;
+    max-width: 90%;
+    white-space: pre-line;
+    word-wrap: break-word;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}

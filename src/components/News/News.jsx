@@ -1,8 +1,11 @@
 import s from './News.module.css';
 import Button from "../Button/Button";
 import NewsItem from "./NewsItem/NewsItem";
+import {useSelector} from "react-redux";
 
 const News = () => {
+    const news = useSelector(state => state.news.newsElements);
+    let newsElements = news.map(n => <NewsItem news={n} key={n.id} />);
 
     return (
         <section className={s.news}>
@@ -11,9 +14,7 @@ const News = () => {
                 <Button title="Недавние" className="auth"/>
             </div>
             <div className={s.newsContent}>
-                <NewsItem/>
-                <NewsItem/>
-                <NewsItem/>
+                {newsElements}
             </div>
         </section>
     );
