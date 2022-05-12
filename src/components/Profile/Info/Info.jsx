@@ -36,7 +36,7 @@ const Info = () => {
             <div className={s.avatar}>
                 <img src={photoURL}/>
                 <div className={s.content}>
-                    <label htmlFor="upload" className="custom-file-upload">
+                    <label htmlFor="upload" className={s.customFileUpload}>
                         Сменить фото
                     </label>
                     <input type="file" id="upload" onChange={handleChange} hidden/>

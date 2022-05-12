@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import {NavLink, useNavigate} from "react-router-dom";
-import {Form} from "../Form/Form";
-import {useDispatch, useSelector} from "react-redux";
-import {setUser} from "../../redux/auth-reducer";
-import s from "../LoginPage/LoginPage.module.css";
-import {authInitiate} from "../../redux/actions/authInitiate";
-import Button from "../Button/Button";
+import {useEffect, useState} from 'react';
+import {NavLink, useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import s from './Register.module.css';
+import {authInitiate} from '../../redux/actions/authInitiate';
+import Button from '../Button/Button';
 
 const RegisterPage = () => {
     const [state, setState] = useState({
@@ -21,7 +18,7 @@ const RegisterPage = () => {
 
     useEffect(() => {
         if(currentUser) {
-            navigate('/main');
+            navigate('/news');
         }
     }, [currentUser, navigate]);
 
@@ -42,53 +39,56 @@ const RegisterPage = () => {
     }
 
     return (
-        <div>
-            <h2>Регистрация</h2>
-            <form className={s.formSignin} onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    id="displayName"
-                    className="form-control"
-                    placeholder="Имя Фамилия"
-                    name="displayName"
-                    onChange={handleChange}
-                    value={displayName}
-                    required
-                />
-                <input
-                    type="email"
-                    id="inputEmail"
-                    className="form-control"
-                    placeholder="Электронная почта"
-                    name="email"
-                    onChange={handleChange}
-                    value={email}
-                    required
-                />
-                <input
-                    type="password"
-                    id="inputPassword"
-                    className="form-control2"
-                    placeholder="Пароль"
-                    name="password"
-                    onChange={handleChange}
-                    value={password}
-                    required
-                />
-                <input
-                    type="password"
-                    id="inputPasswordConfirm"
-                    className="form-control2"
-                    placeholder="Повторите пароль"
-                    name="passwordConfirm"
-                    onChange={handleChange}
-                    value={passwordConfirm}
-                    required
-                />
-                <Button className='auth' onClick={handleSubmit} title='Регистрация' />
-            </form>
-            <div><NavLink to="/login"> Назад </NavLink></div>
-        </div>
+        <section className={s.main}>
+            <div className={s.mainImage}></div>
+            <div className={s.mainRegister}>
+                <h2>Регистрация</h2>
+                <form className={s.formSigning} onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        id="displayName"
+                        className={s.formControlName}
+                        placeholder="Имя Фамилия"
+                        name="displayName"
+                        onChange={handleChange}
+                        value={displayName}
+                        required
+                    />
+                    <input
+                        type="email"
+                        id="inputEmail"
+                        className={s.formControlEmail}
+                        placeholder="Электронная почта"
+                        name="email"
+                        onChange={handleChange}
+                        value={email}
+                        required
+                    />
+                    <input
+                        type="password"
+                        id="inputPassword"
+                        className={s.formControlPassword}
+                        placeholder="Пароль"
+                        name="password"
+                        onChange={handleChange}
+                        value={password}
+                        required
+                    />
+                    <input
+                        type="password"
+                        id="inputPasswordConfirm"
+                        className={s.formControlPassword}
+                        placeholder="Повторите пароль"
+                        name="passwordConfirm"
+                        onChange={handleChange}
+                        value={passwordConfirm}
+                        required
+                    />
+                    <Button className='auth' onClick={handleSubmit} title='Регистрация'/>
+                </form>
+                <h4><NavLink to="/login"> Назад </NavLink></h4>
+            </div>
+        </section>
     );
 };
 

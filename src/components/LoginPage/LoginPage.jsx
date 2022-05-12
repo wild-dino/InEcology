@@ -1,9 +1,10 @@
-import {NavLink, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import s from "./LoginPage.module.css";
-import {useEffect, useState} from "react";
-import {loginInitiate} from "../../redux/actions/authInitiate";
-import Button from "../Button/Button";
+import {NavLink, useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import s from './LoginPage.module.css';
+import {useEffect, useState} from 'react';
+import {loginInitiate} from '../../redux/actions/authInitiate';
+import Button from '../Button/Button';
+import bimg from './../../assets/Backgrounds/Garbage.png';
 
 const LoginPage = () => {
     const [state, setState] = useState({
@@ -16,7 +17,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (currentUser) {
-            navigate('/main');
+            navigate('/news');
         }
     }, [currentUser, navigate]);
 
@@ -38,34 +39,37 @@ const LoginPage = () => {
     };
 
     return (
-        <div className={s.authSection}>
-            <h2 className={s.title}>Добро пожаловать!</h2>
-            <form className={s.formSignin} onSubmit={handleSubmit}>
-                <h3>Войдите</h3>
-                <input
-                    type="email"
-                    id="inputEmail"
-                    className="form-control"
-                    placeholder="Email Address"
-                    name="email"
-                    onChange={handleChange}
-                    value={email}
-                    required
-                />
-                <input
-                    type="password"
-                    id="inputPassword"
-                    className="form-control2"
-                    placeholder="Password"
-                    name="password"
-                    onChange={handleChange}
-                    value={password}
-                    required
-                />
-                <Button className={'auth'} onClick={handleSubmit} title={'Войти'}>Войти</Button>
-            </form>
-            <div>Нет аккаунта? <NavLink to="/register">Зарегестрируйтесь</NavLink></div>
-        </div>
+        <section className={s.main}>
+            <div className={s.image}></div>
+            <div className={s.auth}>
+                <h2 className={s.authTitle}>Добро пожаловать!</h2>
+                <form className={s.authSigning} onSubmit={handleSubmit}>
+                    <h3>Войдите</h3>
+                    <input
+                        type="email"
+                        id="inputEmail"
+                        className={s.email}
+                        placeholder="Электронная почта"
+                        name="email"
+                        onChange={handleChange}
+                        value={email}
+                        required
+                    />
+                    <input
+                        type="password"
+                        id="inputPassword"
+                        className={s.password}
+                        placeholder="Пароль"
+                        name="password"
+                        onChange={handleChange}
+                        value={password}
+                        required
+                    />
+                    <Button className={'auth'} onClick={handleSubmit} title={'Войти'}>Войти</Button>
+                </form>
+                <h4>Нет аккаунта? <NavLink to="/register">Зарегестрируйтесь</NavLink></h4>
+            </div>
+        </section>
     );
 };
 
