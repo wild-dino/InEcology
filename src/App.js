@@ -18,6 +18,7 @@ import {setUser, setUserPhoto} from "./redux/auth-reducer";
 import Blog from "./components/Blog/Blog";
 import PostContent from "./components/Blog/PostItem/PostContent/PostContent";
 import SelectedNew from "./components/News/SelectedNew/SelectedNew";
+import CollectionPoints from "./components/CollectionPoints/CollectionPoints";
 
 const App = (props) => {
     const dispatch = useDispatch();
@@ -74,6 +75,11 @@ const App = (props) => {
                     <Route path="blog/:id" element={
                         <PrivateRoute>
                             <PostContent store={props.store}/>
+                        </PrivateRoute>}>
+                    </Route>
+                    <Route path="collection-points" element={
+                        <PrivateRoute>
+                            <CollectionPoints store={props.store}/>
                         </PrivateRoute>}>
                     </Route>
                     <Route path="/cart" element={

@@ -17,7 +17,7 @@ const Navbar = () => {
                 <NavLink to="/blog" className={(navData) => navData.isActive ? s.active : ''}>Блог</NavLink>
             </div>
             <div className={s.link}>
-                <NavLink to="/#" className={(navData) => navData.isActive ? s.active : ''}>Пункты приема</NavLink>
+                <NavLink to="/collection-points" className={(navData) => navData.isActive ? s.active : ''}>Пункты приема</NavLink>
             </div>
             <div className={s.link}>
                 <NavLink to="/dialogs/*" className={(navData) => navData.isActive ? s.active : ''}>Сообщения</NavLink>
