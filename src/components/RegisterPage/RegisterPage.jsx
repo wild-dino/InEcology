@@ -46,6 +46,7 @@ const RegisterPage = () => {
                 <form className={s.formSigning} onSubmit={handleSubmit}>
                     <input
                         type="text"
+                        autoComplete="off"
                         id="displayName"
                         className={s.formControlName}
                         placeholder="Имя Фамилия"
@@ -56,6 +57,7 @@ const RegisterPage = () => {
                     />
                     <input
                         type="email"
+                        autoComplete="off"
                         id="inputEmail"
                         className={s.formControlEmail}
                         placeholder="Электронная почта"
@@ -66,6 +68,7 @@ const RegisterPage = () => {
                     />
                     <input
                         type="password"
+                        autoComplete="off"
                         id="inputPassword"
                         className={s.formControlPassword}
                         placeholder="Пароль"
@@ -76,6 +79,7 @@ const RegisterPage = () => {
                     />
                     <input
                         type="password"
+                        autoComplete="off"
                         id="inputPasswordConfirm"
                         className={s.formControlPassword}
                         placeholder="Повторите пароль"

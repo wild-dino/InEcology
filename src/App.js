@@ -57,7 +57,7 @@ const App = (props) => {
                             <DialogsContainer store={props.store}/>
                         </PrivateRoute>}>
                     </Route>
-                    <Route path="/profile" element={
+                    <Route path="/" element={
                         <PrivateRoute>
                             <Profile store={props.store}/>
                         </PrivateRoute>}>

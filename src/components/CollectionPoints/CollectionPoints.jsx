@@ -1,11 +1,10 @@
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
-import {useRef, useState} from "react";
 import s from './CollectionsPoints.module.css';
 import plasticImg from './../../assets/Icons/plastic.png';
 import Button from "../Button/Button";
+import {useState} from "react";
 
 const CollectionsPoints = () => {
-    const map = useRef(null);
     let [coord, setCoord] = useState({latitude: 0, longitude: 0});
     let [center, setCenter] = useState([59.938480, 30.312481])
     let [zoom, setZoom] = useState(10);
@@ -23,7 +22,7 @@ const CollectionsPoints = () => {
                 Выберите ближайшие к Вам пункты сбора пластика на карте.
             </div>
             <YMaps>
-                <Map instanceRef={map} state={mapState} className={s.collectionPointsMap}>
+                <Map state={mapState} className={s.collectionPointsMap}>
                     <Placemark
                         geometry={[coord.latitude, coord.longitude]}
                     />
