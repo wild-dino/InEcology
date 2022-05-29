@@ -22,12 +22,7 @@ const SelectedNew = () => {
             <div className={s.newHeader}>
                 <h1 className={s.newHeaderTitle}>{newSelected.title}</h1>
                 <div className={s.newHeaderImage}>
-                    <img src={require(`./../../../assets/News/${
-                        newSelected.image?
-                            newSelected.image
-                            : 
-                            'empty.jpg'
-                    }`)}/>
+
                 </div>
             </div>
             <div className={s.newText}>{newSelected.text}</div>
