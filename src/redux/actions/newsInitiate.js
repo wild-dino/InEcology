@@ -14,7 +14,7 @@ export const fetchLatestNews = () => {
 
 export const fetchOtherNews = () => {
     return (dispatch) => {
-        axios.get(`${URL}?_order=desc&_start=3&_end=15`)
+        axios.get(`${URL}?_order=desc&_start=2&_end=15`)
             .then((response) => response.data)
             .then((data) => dispatch(setOtherNews(data)));
     }

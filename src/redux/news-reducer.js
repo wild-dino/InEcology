@@ -3,13 +3,14 @@ const GET_LATEST = 'GET_LATEST';
 const GET_OTHERS = 'GET_OTHERS';
 
 let initialState = {
-    newSelected: ''
+    newSelected: '',
+    isFetching: true
 }
 
 const NewsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SHOW_SELECTED_NEW:
-            let currentItem = state.newsElements.find((elem) => elem.id === action.payload);
+            let currentItem = state.otherNews.find((elem) => elem.id === action.payload);
             return {
                 ...state,
                 newSelected: currentItem
@@ -17,12 +18,13 @@ const NewsReducer = (state = initialState, action) => {
         case GET_LATEST:
             return {
                 ...state,
-                latest: action.payload
+                latest: action.payload,
+                isFetching: false
             }
         case GET_OTHERS:
             return {
                 ...state,
-                otherNews: action.payload
+                otherNews: action.payload,
             }
         default:
             return state;

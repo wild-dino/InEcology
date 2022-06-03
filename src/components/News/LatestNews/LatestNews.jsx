@@ -1,17 +1,23 @@
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import s from "./LatestNews.module.css";
 
 const showLatest = ({latest}) => {
     return (
-        <div>
+        <div className={s.latestArticles}>
             {
-                latest? latest.map((item) => (
-                    <NavLink to={`/news/${item.id}`} key={item.id} className={s.item}>
-                        <div className={s.imageCover} style={{backgroundImage: `url(/images/articles/${item.img})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center center", minHeight: "17.5rem" }}>
-                        </div>
-                        <div className={s.description}>
-                            {item.title}
-                        </div>
+                latest ? latest.map((item) => (
+                    <NavLink to={`/news/${item.id}`} key={item.id} className={s.link}>
+                            <div style={{
+                                backgroundImage: `url(/images/articles/${item.img})`,
+                                backgroundSize: "cover",
+                                backgroundRepeat: "no-repeat",
+                                backgroundPosition: "center center",
+                                minHeight: "17.5rem"
+                            }}>
+                            </div>
+                            <div className={s.description}>
+                                {item.title}
+                            </div>
                     </NavLink>
                 )) : null
             }
@@ -22,8 +28,8 @@ const showLatest = ({latest}) => {
 const LatestNews = (props) => {
     return (
         <div className={s.homeLatest}>
-            <h2>Latest News</h2>
-            {showLatest(props)}
+            <h2>Последние новости</h2>
+                {showLatest(props)}
         </div>
     )
 }

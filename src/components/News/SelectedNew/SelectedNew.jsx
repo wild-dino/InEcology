@@ -2,7 +2,6 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {showSelectedNew} from "../../../redux/news-reducer";
 import {useEffect} from "react";
-// import emptyPhoto from './../../../assets/News/empty.jpg';
 import s from './SelectedNew.module.css';
 
 
@@ -13,6 +12,8 @@ const SelectedNew = () => {
     const dispatch = useDispatch();
     const image = newSelected.image;
 
+    console.log(newSelected);
+
     useEffect(() => {
         dispatch(showSelectedNew(newId));
     }, [newIdParam, dispatch]);
@@ -21,11 +22,15 @@ const SelectedNew = () => {
         <div className={s.new}>
             <div className={s.newHeader}>
                 <h1 className={s.newHeaderTitle}>{newSelected.title}</h1>
-                <div className={s.newHeaderImage}>
-
+                <div className={s.newHeaderImage} style={{
+                    backgroundImage: `url(/images/articles/${newSelected.img})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center center"
+                }}>
                 </div>
             </div>
-            <div className={s.newText}>{newSelected.text}</div>
+            <div className={s.newText}>{newSelected.body}</div>
         </div>
     );
 };
