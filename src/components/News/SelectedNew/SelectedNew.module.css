@@ -1,18 +1,17 @@
 .new {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-left: 40px;
 }
 
 .newHeader {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .newHeaderTitle {
     width: 100%;
-    max-width: 90%;
     margin: 0;
 }
 
@@ -36,7 +35,6 @@
 
 .newText {
     width: 100%;
-    max-width: 90%;
     white-space: pre-line;
     word-wrap: break-word;
     line-height: 1.7;

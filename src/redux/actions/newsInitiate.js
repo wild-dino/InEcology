@@ -1,7 +1,7 @@
 import axios from "axios";
 import {setLatestNews, setOtherNews} from "../news-reducer";
 
-const URL = "http://localhost:5000/articles";
+const URL = "https://my-json-server.typicode.com/wild-dino/articles/articles";
 
 
 export const fetchLatestNews = () => {
