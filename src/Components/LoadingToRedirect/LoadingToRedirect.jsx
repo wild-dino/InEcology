@@ -1,22 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
-
+import useRedirect from "Hooks/useRedirect";
 
 const LoadingToRedirect = () => {
-    const [count, setCount] = useState(5);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        let cleanupFunction = false;
-        const interval = setInterval(() => {
-            if(!cleanupFunction) {
-                setCount((currentCount) => --currentCount);
-            }
-        }, 500);
-
-        count === 0 && navigate('/login');
-        return () => cleanupFunction = true;
-    }, [count, navigate])
+    const count = useRedirect();
 
     return (
         <div>

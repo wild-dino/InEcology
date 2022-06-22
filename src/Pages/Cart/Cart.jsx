@@ -1,30 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {connect} from "react-redux";
-import CartItem from "../../Components/CartItem/CartItem";
+import CartItem from "Components/CartItem/CartItem";
 import s from "./Cart.module.css";
 import emptyCart from "Assets/Cart/emptyCard.svg";
 import logo from "Assets/Icons/logo.svg";
 import Button from "Components/Button/Button";
+import {useSelector} from "react-redux";
+import useCount from "Hooks/useCount";
 
+const Cart = () => {
+    const {cart, totalPrice, totalItems} = useCount();
+    let currentBalance = useSelector(state => state.catalog.currentBalance);
+    const cartElements = cart.map(item => <CartItem itemData={item} key={item.id}/>);
 
-const Cart = ({cart, currentBalance}) => {
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [totalItems, setTotalItem] = useState(0);
-
-    useEffect(() => {
-        let items = 0;
-        let price = 0;
-
-        cart.forEach((item) => {
-            items += item.qty;
-            price += item.qty * item.cost;
-        })
-
-        setTotalPrice(price);
-        setTotalItem(items)
-    }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItem])
-
-    const cartElements = cart.map(item => <CartItem itemData={item} key={item.id}/>)
     return (
         <div className={s.cart}>
             <div className={s.items}>
@@ -47,12 +33,4 @@ const Cart = ({cart, currentBalance}) => {
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        cart: state.catalog.cart,
-        currentBalance: state.catalog.currentBalance
-    }
-}
-
-
-export default connect(mapStateToProps)(Cart);
+export default Cart;

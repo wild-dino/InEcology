@@ -10,7 +10,6 @@ import {upload} from "Redux/actions/authInitiate";
 const Info = () => {
     const currentUser = useSelector(state => state.user.currentUser);
     const loading = useSelector(state => state.user.loading);
-    const name = useSelector(state => state.user.currentUser.displayName);
     const [photo, setPhoto] = useState(null);
     const [photoURL, setPhotoURL] = useState(avatar);
     const dispatch = useDispatch();
@@ -44,7 +43,7 @@ const Info = () => {
             </div>
 
             <div className={s.description}>
-                <div className={s.name}>{name}</div>
+                <div className={s.name}>{currentUser.displayName}</div>
                 <div className={s.key}>Ваш код: yWer34g</div>
                 { loading?
                     <Preloader/>

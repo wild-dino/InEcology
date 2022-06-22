@@ -48,7 +48,6 @@ const AuthReducer = (state = initialState, action) => {
             }
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
-            debugger
             return {
                 ...state,
                 loading: false,
