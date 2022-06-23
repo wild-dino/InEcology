@@ -5,9 +5,9 @@
 
 .mainImage {
     position: relative;
-    width: 50%;
+    width: 100%;
     background-image: url('../../Assets/Backgrounds/1.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     height: 60vh;

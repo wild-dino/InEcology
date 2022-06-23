@@ -7,10 +7,9 @@
     position: relative;
     width: 100%;
     background-image: url('../../Assets/Backgrounds/Garbage.png');
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: right;
     background-repeat: no-repeat;
-    min-height: 73vh;
     z-index: 1;
 }
 

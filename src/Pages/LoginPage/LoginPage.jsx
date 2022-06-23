@@ -1,18 +1,31 @@
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import s from './LoginPage.module.css';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {loginInitiate} from 'Redux/actions/authInitiate';
 import Button from 'Components/Button/Button';
+import {userSchema} from "Validations/UserValidation";
+import {useFormik} from "formik";
+import InputForm from "Components/InputForm/InputForm";
 
 const LoginPage = () => {
-    const [state, setState] = useState({
-        email: '',
-        password: ''
-    });gi
-
+    const dispatch = useDispatch();
     const {currentUser} = useSelector(state => state.user);
     const navigate = useNavigate();
+    const {
+        values,
+        isSubmitting,
+        handleBlur,
+        handleChange,
+        handleSubmit,
+        errors
+    } = useFormik({
+        initialValues: {
+            email: "",
+            password: "",
+        },
+        onSubmit
+    });
 
     useEffect(() => {
         if (currentUser) {
@@ -20,21 +33,8 @@ const LoginPage = () => {
         }
     }, [currentUser, navigate]);
 
-
-    const dispatch = useDispatch();
-    const {email, password} = state;
-
-    const handleSubmit = () => {
-        if (!email || ![password]) {
-            return;
-        }
-        dispatch(loginInitiate(email, password));
-        setState({email: '', password: ''});
-    };
-
-    const handleChange = (e) => {
-        let {name, value} = e.target;
-        setState({...state, [name]: value});
+    function onSubmit() {
+        dispatch(loginInitiate(values.email, values.password));
     };
 
     return (
@@ -44,27 +44,29 @@ const LoginPage = () => {
                 <h2 className={s.authTitle}>Добро пожаловать!</h2>
                 <form className={s.authSigning} onSubmit={handleSubmit}>
                     <h3>Войдите</h3>
-                    <input
-                        type="email"
-                        id="inputEmail"
-                        className={s.email}
+                    <InputForm
+                        type="text"
+                        autoComplete="off"
+                        id="email"
+                        className="formControl"
                         placeholder="Электронная почта"
                         name="email"
                         onChange={handleChange}
-                        value={email}
-                        required
+                        value={values.email}
+                        onBlur={handleBlur}
                     />
-                    <input
+                    <InputForm
                         type="password"
-                        id="inputPassword"
-                        className={s.password}
-                        placeholder="Пароль"
+                        autoComplete="off"
+                        id="password"
+                        className="formControl"
+                        placeholder="Электронная почта"
                         name="password"
                         onChange={handleChange}
-                        value={password}
-                        required
+                        value={values.password}
+                        onBlur={handleBlur}
                     />
-                    <Button className={'auth'} onClick={handleSubmit} title={'Войти'}>Войти</Button>
+                    <Button disabled={isSubmitting}  type="submit" className='auth' onClick={handleSubmit} title={'Войти'}>Войти</Button>
                 </form>
                 <h4>Нет аккаунта? <NavLink to="/register">Зарегестрируйтесь</NavLink></h4>
             </div>

@@ -102,7 +102,7 @@ const RegisterPage = () => {
                     />
                     {errors.passwordConfirm && touched.passwordConfirm &&
                         <p className={s.error}>{errors.passwordConfirm}</p>}
-                    <Button disabled={isSubmitting} type="submit" className='auth' title='Регистрация'
+                    <Button type="submit" className='auth' title='Регистрация'
                             onClick={handleSubmit}/>
                 </form>
                 <h4><NavLink to="/login">Назад</NavLink></h4>
