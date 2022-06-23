@@ -1,20 +1,28 @@
 import {useEffect} from "react";
 import s from "./Catalog.module.css";
 import PlantItem from "Components/PlantItem/PlantItem";
-import {useDispatch, useSelector} from "react-redux";
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {fetchData} from "Redux/actions/itemsList";
 import {setCurrentPage} from "Redux/catalog-reducer";
 import {createPages} from "Helpers/pagesCreator";
 import Preloader from "Components/Preloader/Preloader";
 
-
 const Catalog = (props) => {
     const dispatch = useDispatch();
-    const items = useSelector(state => state.catalog.plantsList);
-    const isFetching = useSelector(state => state.catalog.isFetching);
-    const currentPage = useSelector(state => state.catalog.currentPage);
-    const totalCount = useSelector(state => state.catalog.totalCount);
-    const limitItems = useSelector(state => state.catalog.limitItems);
+    const {
+        plantsList: items,
+        isFetching,
+        currentPage,
+        totalCount,
+        limitItems
+    } = useSelector(({catalog}) => ({
+        plantsList: catalog.plantsList,
+        isFetching: catalog.isFetching,
+        currentPage: catalog.currentPage,
+        totalCount: catalog.totalCount,
+        limitItems: catalog.limitItems
+    }), shallowEqual);
+
     const pagesCount = Math.ceil(totalCount/limitItems);
     const pages = [];
     createPages(pages, pagesCount, currentPage);
