@@ -4,7 +4,6 @@ import s from './LoginPage.module.css';
 import {useEffect} from 'react';
 import {loginInitiate} from 'Redux/actions/authInitiate';
 import Button from 'Components/Button/Button';
-import {userSchema} from "Validations/UserValidation";
 import {useFormik} from "formik";
 import InputForm from "Components/InputForm/InputForm";
 
@@ -17,8 +16,7 @@ const LoginPage = () => {
         isSubmitting,
         handleBlur,
         handleChange,
-        handleSubmit,
-        errors
+        handleSubmit
     } = useFormik({
         initialValues: {
             email: "",
