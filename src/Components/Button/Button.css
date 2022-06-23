@@ -29,6 +29,7 @@
 .auth {
     width: 100%;
     background: linear-gradient(111deg, #68bd78, #c8fd89);
+    margin-top: 15px;
 }
 
 .auth:hover {
@@ -37,4 +38,8 @@
 
 .uploadBtn {
     background: linear-gradient(111deg, #68bd78, #c8fd89);
+}
+
+button:disabled {
+    opacity: 0.35;
 }

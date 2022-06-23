@@ -1,0 +1,15 @@
+.formControl {
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+    background-color: #DDFFB3;
+}
+
+.inputError {
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #DDFFB3;
+    border-color: #fc0000;
+}

@@ -9,7 +9,7 @@ const LoginPage = () => {
     const [state, setState] = useState({
         email: '',
         password: ''
-    });
+    });gi
 
     const {currentUser} = useSelector(state => state.user);
     const navigate = useNavigate();

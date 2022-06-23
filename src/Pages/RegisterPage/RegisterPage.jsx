@@ -1,42 +1,51 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import s from './Register.module.css';
 import {authInitiate} from 'Redux/actions/authInitiate';
 import Button from 'Components/Button/Button';
+import {useFormik} from "formik";
+import {userSchema} from "Validations/UserValidation";
+import InputForm from "Components/InputForm/InputForm";
 
 const RegisterPage = () => {
-    const [state, setState] = useState({
-        displayName: "",
-        email: "",
-        password: "",
-        passwordConfirm: ""
-    });
-
+    const dispatch = useDispatch();
     const {currentUser} = useSelector(state => state.user);
     const navigate = useNavigate();
+    const {
+        values,
+        isSubmitting,
+        errors,
+        touched,
+        handleBlur,
+        handleChange,
+        handleSubmit
+    } = useFormik({
+        initialValues: {
+            displayName: "",
+            email: "",
+            password: "",
+            passwordConfirm: ""
+        },
+        validationSchema: userSchema,
+        onSubmit
+    });
 
     useEffect(() => {
-        if(currentUser) {
+        if (currentUser) {
             navigate('/news');
         }
     }, [currentUser, navigate]);
 
-    const dispatch = useDispatch();
+    function onSubmit() {
+        dispatch(authInitiate(values.email, values.password, values.displayName));
+        console.log("submitted")
+    }
 
-    const {email, password, displayName, passwordConfirm} = state;
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if(password !== passwordConfirm) {
-            return;
-        }
-        dispatch(authInitiate(email, password, displayName));
-        setState({email: '', displayName: '', password: '', passwordConfirm: ''});
-    }
-    const handleChange = (e) => {
-        let {name, value} = e.target;
-        setState({...state, [name]: value});
-    }
+    // const handleChange = (e) => {
+    //     let {name, value} = e.target;
+    //     setState({...state, [name]: value});
+    // }
 
     return (
         <section className={s.main}>
@@ -44,53 +53,59 @@ const RegisterPage = () => {
             <div className={s.mainRegister}>
                 <h2>Регистрация</h2>
                 <form className={s.formSigning} onSubmit={handleSubmit}>
-                    <input
+                    <InputForm
                         type="text"
                         autoComplete="off"
                         id="displayName"
-                        className={s.formControlName}
+                        className="formControl"
                         placeholder="Имя Фамилия"
                         name="displayName"
                         onChange={handleChange}
-                        value={displayName}
-                        required
+                        value={values.displayName}
+                        onBlur={handleBlur}
                     />
-                    <input
+                    {errors.displayName && touched.displayName && <p className={s.error}>{errors.displayName}</p>}
+                    <InputForm
                         type="email"
                         autoComplete="off"
                         id="inputEmail"
-                        className={s.formControlEmail}
+                        className={errors.email && touched.displayName ? "inputError" : "formControl"}
                         placeholder="Электронная почта"
                         name="email"
                         onChange={handleChange}
-                        value={email}
-                        required
+                        value={values.email}
+                        onBlur={handleBlur}
                     />
-                    <input
+                    {errors.email && touched.email && <p className={s.error}>{errors.email}</p>}
+                    <InputForm
                         type="password"
                         autoComplete="off"
                         id="inputPassword"
-                        className={s.formControlPassword}
+                        className={errors.password && touched.displayName ? "inputError" : "formControl"}
                         placeholder="Пароль"
                         name="password"
                         onChange={handleChange}
-                        value={password}
-                        required
+                        value={values.password}
+                        onBlur={handleBlur}
                     />
-                    <input
+                    {errors.password && touched.password && <p className={s.error}>{errors.password}</p>}
+                    <InputForm
                         type="password"
                         autoComplete="off"
                         id="inputPasswordConfirm"
-                        className={s.formControlPassword}
+                        className={errors.passwordConfirm && touched.displayName ? "inputError" : "formControl"}
                         placeholder="Повторите пароль"
                         name="passwordConfirm"
                         onChange={handleChange}
-                        value={passwordConfirm}
-                        required
+                        value={values.passwordConfirm}
+                        onBlur={handleBlur}
                     />
-                    <Button className='auth' onClick={handleSubmit} title='Регистрация'/>
+                    {errors.passwordConfirm && touched.passwordConfirm &&
+                        <p className={s.error}>{errors.passwordConfirm}</p>}
+                    <Button disabled={isSubmitting} type="submit" className='auth' title='Регистрация'
+                            onClick={handleSubmit}/>
                 </form>
-                <h4><NavLink to="/login"> Назад </NavLink></h4>
+                <h4><NavLink to="/login">Назад</NavLink></h4>
             </div>
         </section>
     );
