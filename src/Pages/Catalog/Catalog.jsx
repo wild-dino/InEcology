@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import s from "./Catalog.module.css";
-import PlantItem from "../../Components/PlantItem/PlantItem";
+import PlantItem from "Components/PlantItem/PlantItem";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData} from "Redux/actions/itemsList";
 import {setCurrentPage} from "Redux/catalog-reducer";

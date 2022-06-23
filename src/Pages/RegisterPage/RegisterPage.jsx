@@ -2,8 +2,8 @@ import {useEffect, useState} from 'react';
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import s from './Register.module.css';
-import {authInitiate} from '../../Redux/actions/authInitiate';
-import Button from '../../Components/Button/Button';
+import {authInitiate} from 'Redux/actions/authInitiate';
+import Button from 'Components/Button/Button';
 
 const RegisterPage = () => {
     const [state, setState] = useState({
