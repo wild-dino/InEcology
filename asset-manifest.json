@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/InEcology/static/css/main.09bec5ab.css",
-    "main.js": "/InEcology/static/js/main.3586ad95.js",
+    "main.css": "/InEcology/static/css/main.46357af6.css",
+    "main.js": "/InEcology/static/js/main.380fea70.js",
     "static/js/787.28cb0dcd.chunk.js": "/InEcology/static/js/787.28cb0dcd.chunk.js",
     "static/media/astra-kustovaya.jpg": "/InEcology/static/media/astra-kustovaya.d78677c86f27fd7702ae.jpg",
     "static/media/Garbage.png": "/InEcology/static/media/Garbage.06a43594cba5d9ad71cc.png",
@@ -32,12 +32,12 @@
     "static/media/logo.svg": "/InEcology/static/media/logo.66b362885db2d91d0de47ba6d5bee9fd.svg",
     "static/media/cart.svg": "/InEcology/static/media/cart.b5d1777764ccd138f3dfda070908fb23.svg",
     "index.html": "/InEcology/index.html",
-    "main.09bec5ab.css.map": "/InEcology/static/css/main.09bec5ab.css.map",
-    "main.3586ad95.js.map": "/InEcology/static/js/main.3586ad95.js.map",
+    "main.46357af6.css.map": "/InEcology/static/css/main.46357af6.css.map",
+    "main.380fea70.js.map": "/InEcology/static/js/main.380fea70.js.map",
     "787.28cb0dcd.chunk.js.map": "/InEcology/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.09bec5ab.css",
-    "static/js/main.3586ad95.js"
+    "static/css/main.46357af6.css",
+    "static/js/main.380fea70.js"
   ]
 }
