@@ -12,7 +12,7 @@ const showOther = ({others}) => {
                     <NavLink to={`/news/${item.id}`} key={item.id} className={s.link}>
                         <div className={s.articleItem}>
                             <div className={s.imageCover} style={{
-                                backgroundImage: `url(/images/articles/${item.img})`,
+                                backgroundImage: `url(${process.env.PUBLIC_URL}/images/articles/${item.img})`,
                                 backgroundSize: "cover",
                                 backgroundRepeat: "no-repeat",
                                 backgroundPosition: "center center"

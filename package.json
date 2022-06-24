@@ -1,5 +1,5 @@
 {
-  "homepage": "http://wild-dino.github.io/inEcology",
+  "homepage": "http://wild-dino.github.io/InEcology",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "react-google-maps": "^9.4.5",
     "react-loader-spinner": "^6.0.0-0",
     "react-yandex-maps": "^4.6.0"

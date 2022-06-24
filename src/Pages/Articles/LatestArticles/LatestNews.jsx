@@ -8,7 +8,7 @@ const showLatest = ({latest}) => {
                 latest ? latest.map((item) => (
                     <NavLink to={`/news/${item.id}`} key={item.id} className={s.link}>
                             <div style={{
-                                backgroundImage: `url(/images/articles/${item.img})`,
+                                backgroundImage: `url(${process.env.PUBLIC_URL}/images/articles/${item.img})`,
                                 backgroundSize: "cover",
                                 backgroundRepeat: "no-repeat",
                                 backgroundPosition: "center center",
@@ -28,7 +28,7 @@ const showLatest = ({latest}) => {
 const LatestNews = (props) => {
     return (
         <div className={s.homeLatest}>
-            <h2>Последние новости</h2>
+            <h2 className={s.title}>Последние новости</h2>
                 {showLatest(props)}
         </div>
     )

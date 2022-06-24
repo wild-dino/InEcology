@@ -51,7 +51,7 @@ const Header = () => {
                     </div>
                     <Button onClick={handleAuth}
                             title={"Выйти"}
-                            className={currentUser ? 'auth' : 'btnDisplayNone'}/>
+                            className={currentUser ? 'hdr-auth' : 'btnDisplayNone'}/>
                 </li>
             </ul>
         </header>

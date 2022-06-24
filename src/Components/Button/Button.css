@@ -31,7 +31,11 @@
     margin-top: 15px;
 }
 
-.auth:hover {
+.hdr-auth {
+    background: linear-gradient(111deg, #68bd78, #c8fd89);
+}
+
+.auth:hover, .hdr-auth:hover {
     background: #e7ffcb;
 }
 

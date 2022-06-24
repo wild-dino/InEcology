@@ -10,7 +10,7 @@ let initialState = {
 const NewsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SHOW_SELECTED_NEW:
-            let currentItem = state.otherNews.find((elem) => elem.id === action.payload);
+            let currentItem = state.otherNews.find((elem) => elem.id === action.payload) || state.latest.find((elem) => elem.id === action.payload);
             return {
                 ...state,
                 newSelected: currentItem

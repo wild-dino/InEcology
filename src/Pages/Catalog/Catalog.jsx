@@ -7,7 +7,7 @@ import {setCurrentPage} from "Redux/catalog-reducer";
 import {createPages} from "Helpers/pagesCreator";
 import Preloader from "Components/Preloader/Preloader";
 
-const Catalog = (props) => {
+const Catalog = () => {
     const dispatch = useDispatch();
     const {
         plantsList: items,
@@ -46,7 +46,6 @@ const Catalog = (props) => {
                         <Preloader/>
                 }
             </div>
-            {/*<button className={s.catalog__btn}>Загрузить еще</button>*/}
             <div className={s.catalog__pages}>
                 {pages.map((page, index) => <div
                     key={index}
