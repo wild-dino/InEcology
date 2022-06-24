@@ -58,7 +58,7 @@ const LoginPage = () => {
                         autoComplete="off"
                         id="password"
                         className="formControl"
-                        placeholder="Электронная почта"
+                        placeholder="Пароль"
                         name="password"
                         onChange={handleChange}
                         value={values.password}
