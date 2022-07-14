@@ -1,7 +1,7 @@
-Приложение-эко-сервис для помощи в раздельном сборе отходов. 
+Eco-application for helping collection waste. 
 This site was built using [GitHub Pages](https://wild-dino.github.io/InEcology//).
 
-##Стек технологий:
+###Technologies:
 - React + React Hooks
 - JavaScript
 - Redux
