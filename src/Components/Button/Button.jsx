@@ -1,16 +1,10 @@
 import React from 'react';
 import  './Button.css';
 
-const Button = ({className= '', name= '', title= '', onClick, type, disabled}) => {
-    const onButtonClick = () => {
-        if(onClick){
-            onClick(name);
-        }
-    }
-
+const Button = ({className, title, onClick, type, disabled}) => {
     return (
         <div>
-            <button disabled={disabled} type={type} onClick={onButtonClick} className={`btn ${className}`}>{title}</button>
+            <button disabled={disabled} type={type} onClick={onClick} className={`btn ${className}`}>{title}</button>
         </div>
     );
 };

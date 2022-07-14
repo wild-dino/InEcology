@@ -9,7 +9,6 @@ import Preloader from "Components/Preloader/Preloader";
 const News = () => {
     const isFetching = useSelector(state => state.news.isFetching);
     const news = useSelector(state => (state.news));
-    console.log(news);
     let dispatch = useDispatch();
 
     useEffect(() => {

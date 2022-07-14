@@ -1,9 +1,9 @@
-import {useEffect} from "react";
+import {useCallback, useEffect} from "react";
 import s from "./Catalog.module.css";
 import PlantItem from "Components/PlantItem/PlantItem";
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {fetchData} from "Redux/actions/itemsList";
-import {setCurrentPage} from "Redux/catalog-reducer";
+import {addToCartAC, setCurrentPage} from "Redux/catalog-reducer";
 import {createPages} from "Helpers/pagesCreator";
 import Preloader from "Components/Preloader/Preloader";
 
@@ -23,7 +23,11 @@ const Catalog = () => {
         limitItems: catalog.limitItems
     }), shallowEqual);
 
-    const pagesCount = Math.ceil(totalCount/limitItems);
+    const onAddToCart = useCallback((id) => {
+        dispatch(addToCartAC(id))
+    }, [items])
+
+    const pagesCount = Math.ceil(totalCount / limitItems);
     const pages = [];
     createPages(pages, pagesCount, currentPage);
 
@@ -31,14 +35,14 @@ const Catalog = () => {
         dispatch(fetchData(currentPage, limitItems));
     }, [currentPage]);
 
-    let plantItems = items.map(p => <PlantItem key={p.id} id={p.id} image={p.image} name={p.name}
-                                               cost={p.cost}/>)
+    const plantItems = items.map(p => <PlantItem key={p.id} id={p.id} image={p.image} name={p.name}
+                                                 cost={p.cost} onAddToCart={onAddToCart}/>)
     return (
         <div className={s.catalog}>
             <p className={s.catalog__description}>Сдавая пластик в пункты приема, Вы получаете природные баллы. За один
                 килограмм пластика можно получить
                 10 природных баллов.</p>
-            <div className={ isFetching === false ? s.catalog__list : s.fetching }>
+            <div className={isFetching === false ? s.catalog__list : s.fetching}>
                 {
                     isFetching === false ?
                         plantItems

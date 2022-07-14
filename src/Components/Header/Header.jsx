@@ -38,7 +38,7 @@ const Header = () => {
                 <li className={s.item}>
                         <div className={currentUser ? s.avatar : s.displayNone}>
                             {
-                                <NavLink to="/">
+                                <NavLink to="/InEcology">
                                 <img
                                     src={profilePhoto ? profilePhoto : avatar}
                                     alt=""/>

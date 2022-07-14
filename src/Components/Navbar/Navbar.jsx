@@ -1,32 +1,32 @@
+import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 
+const items = [
+    {href: "/news", text: 'Новости'},
+    {href: "/InEcology", text: 'Мой профиль'},
+    {href: "/catalog", text: 'Каталог'},
+    {href: "/blog", text: 'Блог'},
+    {href: "/collection-points", text: 'Пункты приема'},
+    {href: "/dialogs/*", text: 'Сообщения'},
+    {href: "/cart", text: 'Корзина'},
+];
+
 const Navbar = () => {
     return (
-        <nav className={s.nav}>
-            <div className={s.link}>
-                <NavLink to="/news" className={(navData) => navData.isActive ? s.active : ''}>Новости</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/InEcology" className={(navData) => navData.isActive ? s.active : ''}>Мой профиль</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/catalog" className={(navData) => navData.isActive ? s.active : ''}>Каталог</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/blog" className={(navData) => navData.isActive ? s.active : ''}>Блог</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/collection-points" className={(navData) => navData.isActive ? s.active : ''}>Пункты приема</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/dialogs/*" className={(navData) => navData.isActive ? s.active : ''}>Сообщения</NavLink>
-            </div>
-            <div className={s.link}>
-                <NavLink to="/cart" className={(navData) => navData.isActive ? s.active : ''}>Корзина</NavLink>
-            </div>
-        </nav>
-    );
-};
+        <>
+            <nav className={s.nav}>
+                {items.map(link => {
+                    return (
+                        <div key={link.text} className={s.link}>
+                            <NavLink className={(navData) => navData.isActive ? s.active : ''}
+                                     to={link.href}>{link.text}</NavLink>
+                        </div>
+                    )
+                })}
+            </nav>
+        </>
+    )
+}
 
 export default Navbar;
