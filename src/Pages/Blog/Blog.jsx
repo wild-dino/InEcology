@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 
 const Blog = () => {
     const posts = useSelector(state => state.profilePosts.blogPosts);
-    let postElements = posts.sort((a, b) => b.id - a.id).map(p => <PostItem post={p} key={p.id}/>);
+    const postElements = posts.sort((a, b) => b.id - a.id).map(p => <PostItem post={p} key={p.id}/>);
 
     return (
         <div className={s.blog}>

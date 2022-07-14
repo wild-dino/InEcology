@@ -42,11 +42,6 @@ const RegisterPage = () => {
         console.log("submitted")
     }
 
-    // const handleChange = (e) => {
-    //     let {name, value} = e.target;
-    //     setState({...state, [name]: value});
-    // }
-
     return (
         <section className={s.main}>
             <div className={s.mainImage}></div>

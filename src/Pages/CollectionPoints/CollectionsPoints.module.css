@@ -26,32 +26,3 @@
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
 }
 
-.collectionPointsItem {
-    min-height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.itemIcon {
-    cursor: pointer;
-    display: inline-block;
-    overflow: hidden;
-    width: 5%;
-    padding-bottom: 5%;
-    height: 0;
-    position: relative;
-    margin-left: 40px;
-}
-
-.itemIcon img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-fit: cover;
-}
-
-.itemAddress {
-    font-size: 16px;
-
-}

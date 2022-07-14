@@ -18,7 +18,7 @@ import {setUser, setUserPhoto} from "./Redux/auth-reducer";
 import Blog from "./Pages/Blog/Blog";
 import PostContent from "./Components/PostItem/PostContent/PostContent";
 import SelectedNew from "./Pages/Articles/SelectedArticle/SelectedNew";
-import CollectionPoints from "./Pages/CollectionPoints/CollectionPoints";
+import CollectionPoints from "./Pages/CollectionPoints/CollectionPointsList";
 
 const App = (props) => {
     const dispatch = useDispatch();
