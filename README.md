@@ -7,3 +7,4 @@ This site was built using [GitHub Pages](https://wild-dino.github.io/InEcology//
 - Redux
 - CSS modules
 - React-hook-form, Yup
+- Google Firebase
