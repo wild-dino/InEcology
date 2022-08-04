@@ -3,10 +3,10 @@ import {NavLink, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import s from './Register.module.css';
 import {authInitiate} from 'redux/actions/authInitiate';
-import Button from 'src/components/Button/Button';
+import Button from 'components/Button/Button';
 import {useFormik} from "formik";
-import {userSchema} from "src/validations/UserValidation";
-import InputForm from "src/components/InputForm/InputForm";
+import {userSchema} from "validations/UserValidation";
+import InputForm from "components/InputForm/InputForm";
 
 const RegisterPage = () => {
     const dispatch = useDispatch();
@@ -39,7 +39,6 @@ const RegisterPage = () => {
 
     function onSubmit() {
         dispatch(authInitiate(values.email, values.password, values.displayName));
-        console.log("submitted")
     }
 
     return (

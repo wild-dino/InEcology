@@ -3,9 +3,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import s from './LoginPage.module.css';
 import {useEffect} from 'react';
 import {loginInitiate} from 'redux/actions/authInitiate';
-import Button from 'src/components/Button/Button';
+import Button from 'components/Button/Button';
 import {useFormik} from "formik";
-import InputForm from "src/components/InputForm/InputForm";
+import InputForm from "components/InputForm/InputForm";
 
 const LoginPage = () => {
     const dispatch = useDispatch();

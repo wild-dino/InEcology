@@ -1,5 +1,5 @@
 import s from "./Blog.module.css";
-import PostItem from "src/components/PostItem/PostItem";
+import PostItem from "components/PostItem/PostItem";
 import React from "react";
 import {useSelector} from "react-redux";
 

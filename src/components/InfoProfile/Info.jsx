@@ -3,8 +3,8 @@ import s from './Info.module.css';
 import avatar from 'assets/Profile/avatar.jpg';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import Button from "src/components/Button/Button";
-import Preloader from "src/components/Preloader/Preloader";
+import Button from "components/Button/Button";
+import Preloader from "components/Preloader/Preloader";
 import {upload} from "redux/actions/authInitiate";
 
 const Info = () => {
@@ -13,6 +13,8 @@ const Info = () => {
     const [photo, setPhoto] = useState(null);
     const [photoURL, setPhotoURL] = useState(avatar);
     const dispatch = useDispatch();
+
+    console.log(photoURL)
 
     const handleChange = (e) => {
         if (e.target.files[0]) {

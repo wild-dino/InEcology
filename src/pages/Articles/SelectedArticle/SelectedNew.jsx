@@ -10,8 +10,6 @@ const SelectedNew = () => {
     const newId = parseInt(newIdParam);
     const dispatch = useDispatch();
 
-    console.log(newSelected);
-
     useEffect(() => {
         dispatch(showSelectedNew(newId));
     }, [newIdParam, dispatch]);

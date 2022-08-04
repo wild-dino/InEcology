@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./CollectionPoint.module.css";
 import plasticImg from "assets/Icons/plastic.png";
-import Button from "src/components/Button/Button";
+import Button from "components/Button/Button";
 
 const CollectionPoint = ({getCoordinates, coordinates, address}) => {
     return (

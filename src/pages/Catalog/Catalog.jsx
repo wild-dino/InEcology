@@ -1,11 +1,11 @@
 import {useCallback, useEffect} from "react";
 import s from "./Catalog.module.css";
-import PlantItem from "src/components/PlantItem/PlantItem";
+import PlantItem from "components/PlantItem/PlantItem";
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {fetchData} from "redux/actions/itemsList";
 import {addToCartAC, setCurrentPage} from "redux/catalog-reducer";
-import {createPages} from "src/helpers/pagesCreator";
-import Preloader from "src/components/Preloader/Preloader";
+import {createPages} from "helpers/pagesCreator";
+import Preloader from "components/Preloader/Preloader";
 
 const Catalog = () => {
     const dispatch = useDispatch();

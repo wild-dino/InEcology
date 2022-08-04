@@ -1,6 +1,6 @@
 import s from './Dialogs.module.css';
-import DialogItem from "src/components/Dialogs/DialogItem/DialogItem";
-import Message from "src/components/Dialogs/Message/Message";
+import DialogItem from "components/Dialogs/DialogItem/DialogItem";
+import Message from "components/Dialogs/Message/Message";
 
 const Dialogs = (props) => {
     let state = props.dialogsPage;

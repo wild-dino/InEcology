@@ -1,10 +1,10 @@
-import CartItem from "src/components/CartItem/CartItem";
+import CartItem from "components/CartItem/CartItem";
 import s from "./Cart.module.css";
 import emptyCart from "assets/Cart/emptyCard.svg";
 import logo from "assets/Icons/logo.svg";
-import Button from "src/components/Button/Button";
+import Button from "components/Button/Button";
 import {useSelector} from "react-redux";
-import useCount from "src/hooks/useCount";
+import useCount from "hooks/useCount";
 
 const Cart = () => {
     const {cart, totalPrice, totalItems} = useCount();

@@ -1,4 +1,4 @@
-import useRedirect from "src/hooks/useRedirect";
+import useRedirect from "hooks/useRedirect";
 
 const LoadingToRedirect = () => {
     const count = useRedirect();

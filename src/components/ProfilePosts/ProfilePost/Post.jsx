@@ -12,12 +12,10 @@ const Post = ({post}) => {
         dispatch(deletePost(post.id));
     }
 
-    let onAddToBlog = () => {
+    const onAddToBlog = () => {
         dispatch(addPostToBlog(post.id));
         alert('Ваш пост добавлен в блог :)')
     }
-
-    console.log('В постах айдишник:' + typeof(post.id));
 
     return (
         <div className={s.postItem}>

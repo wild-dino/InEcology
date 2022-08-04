@@ -4,7 +4,7 @@ import logo from 'assets/Icons/InEcology.svg';
 import cartIcon from 'assets/Icons/cart.svg';
 import {useDispatch, useSelector} from 'react-redux';
 import {NavLink, useNavigate} from "react-router-dom";
-import Button from "src/components/Button/Button";
+import Button from "components/Button/Button";
 import {logoutInitiate} from "redux/actions/authInitiate";
 import avatar from 'assets/Profile/avatar.jpg';
 

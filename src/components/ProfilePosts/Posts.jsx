@@ -3,7 +3,7 @@ import s from './Posts.module.css';
 import Post from "./ProfilePost/Post";
 import {useDispatch, useSelector} from "react-redux";
 import {addPost, updateNewPostText} from "redux/posts-reducer";
-import Button from "src/components/Button/Button";
+import Button from "components/Button/Button";
 
 const Posts = (props) => {
     let [post, setPost] = useState('');
@@ -13,13 +13,13 @@ const Posts = (props) => {
     let postElements = posts.sort((a, b) => b.id - a.id).map(p => <Post post={p} key={p.id}/>);
     const dispatch = useDispatch();
 
-    let onAddPost = () => {
+    const onAddPost = () => {
         let id = String(Date.now());
         dispatch(addPost(id, post, currentUser.displayName, currentUser.photoURL));
         setPost(post = '');
     }
 
-    let onPostChange = (e) => {
+    const onPostChange = (e) => {
         post = e.target.value;
         setPost(post);
         dispatch(updateNewPostText(post));
