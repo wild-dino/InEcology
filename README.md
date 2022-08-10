@@ -12,7 +12,7 @@ This site was built by using [GitHub Pages](https://wild-dino.github.io/InEcolog
 - React-hook-form, Yup
 - Google Firebase
 
-# Preview:
+### Preview:
 
 Authorization page: 
 ![Снимок](https://user-images.githubusercontent.com/75693419/183857522-f1b3db54-32f6-424c-8654-f581c52f74fd.JPG)
